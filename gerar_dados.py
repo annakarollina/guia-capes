@@ -3,8 +3,9 @@ Gera os dados da página "Recursos CAPES por curso" a partir da planilha publica
 
 O que faz:
   1. Baixa as abas de recursos e da matriz curso x recurso da planilha publicada.
-  2. Gera o arquivo dados.json (só recursos com Status = Ativo).
-  3. Atualiza a cópia de reserva dentro de recursos-capes-ufcat.html.
+  2. Gera o arquivo dados.json (só recursos com Status = Ativo) e o titulos.json
+     (títulos de periódicos ativos, usados na busca de revistas).
+  3. Atualiza a cópia de reserva dentro de index.html.
 
 Como rodar (na pasta onde estão este script e o HTML):
   python gerar_dados.py
@@ -29,6 +30,11 @@ GID_MATRIZ = "888514790"
 
 PASTA = Path(__file__).resolve().parent
 ARQUIVO_JSON = PASTA / "dados.json"
+ARQUIVO_TITULOS = PASTA / "titulos.json"
+
+# Planilha dos títulos de periódicos (compartilhada como "qualquer pessoa com o link")
+PLANILHA_TITULOS = ("https://docs.google.com/spreadsheets/d/1SPPtYJG2Bzaht6hcoOgZF3lBGGv_Z9dHIz68otQvpp8/"
+                    "export?format=csv&gid=1971989936")
 ARQUIVO_HTML = PASTA / "index.html"
 
 # Notas extras que aparecem no card do recurso (nome exato do recurso: texto)
@@ -42,10 +48,47 @@ LINHA_TODOS = "Todos os cursos"
 # ----------------------------------
 
 
-def baixar_csv(gid):
-    with urllib.request.urlopen(PLANILHA + gid, timeout=60) as r:
-        texto = r.read().decode("utf-8")
+def baixar_csv(gid=None, url=None):
+    with urllib.request.urlopen(url or (PLANILHA + gid), timeout=120) as r:
+        texto = r.read().decode("utf-8-sig")
     return list(csv.DictReader(io.StringIO(texto)))
+
+
+def gerar_titulos(colecoes_ativas):
+    """Gera titulos.json: só títulos Ativo, sem repetições, com temas principais e específicos juntos."""
+    print("Baixando a planilha de títulos...")
+    linhas = baixar_csv(url=PLANILHA_TITULOS)
+    colecoes, indice, titulos, vistos = [], {}, [], set()
+    for x in linhas:
+        titulo = (x.get("Título") or "").strip()
+        colecao = (x.get("Coleção de Periódicos") or "").strip()
+        if not titulo or not colecao or (x.get("status") or "").strip() != "Ativo":
+            continue
+        chave = (titulo.lower(), colecao)
+        if chave in vistos:
+            continue
+        vistos.add(chave)
+        if colecao not in indice:
+            indice[colecao] = len(colecoes)
+            colecoes.append(colecao)
+        url = (x.get("Url_Pagina_Inicial") or "").strip()
+        if "periodicos.capes.gov.br" in url or not url.startswith("http"):
+            url = ""  # sem link próprio: a página mostra "Buscar no Portal CAPES"
+        temas = []
+        for campo in ("Tópicos Principais", "Tópicos Específicos"):
+            for tema in (x.get(campo) or "").split(";"):
+                tema = tema.strip()
+                if tema and tema not in temas:
+                    temas.append(tema)
+        titulos.append([titulo, indice[colecao], (x.get("ISSN") or "").strip(), (x.get("EISSN") or "").strip(),
+                        (x.get("Cobertura") or "").strip(), url, "; ".join(temas)])
+    titulos.sort(key=lambda r: r[0].lower())
+    ARQUIVO_TITULOS.write_text(json.dumps({"colecoes": colecoes, "titulos": titulos}, ensure_ascii=False,
+                                          separators=(",", ":")), encoding="utf-8")
+    print(f"titulos.json gerado: {len(titulos)} títulos em {len(colecoes)} coleções.")
+    fora = [c for c in colecoes if c not in colecoes_ativas]
+    if fora:
+        print("Coleções da planilha de títulos que não estão ativas na planilha de recursos:", "; ".join(fora))
 
 
 def slug(texto):
@@ -111,6 +154,8 @@ def principal():
     ARQUIVO_JSON.write_text(json.dumps(dados, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"dados.json gerado: {len(recursos)} recursos ativos, {len(por_curso)} cursos.")
 
+    gerar_titulos({r["nome"] for r in recursos})
+
     sem_tutorial = [r["nome"] for r in recursos if not r["tutorial"]]
     if sem_tutorial:
         print("Recursos sem link de tutorial:", "; ".join(sem_tutorial))
@@ -118,15 +163,20 @@ def principal():
     if not ARQUIVO_HTML.exists():
         print(f"Aviso: não encontrei {ARQUIVO_HTML.name} nesta pasta. Só o JSON foi gerado.")
         return
-    html = ARQUIVO_HTML.read_text(encoding="utf-8")
+    with open(ARQUIVO_HTML, encoding="utf-8-sig", newline="") as f:
+        html = f.read()
     compacto = json.dumps(dados, ensure_ascii=False).replace("</", "<\\/")
-    novo, trocas = re.subn(r"^const DADOS_RESERVA = .*;$",
-                           lambda m: "const DADOS_RESERVA = " + compacto + ";",
-                           html, count=1, flags=re.M)
+    # Aceita quebra de linha do Windows (CRLF) e dados quebrados em várias linhas:
+    # troca tudo entre "const DADOS_RESERVA =" e a linha "const PLANILHA".
+    padrao = re.compile(r"const DADOS_RESERVA\s*=[\s\S]*?;(?=\s*const PLANILHA\b)")
+    novo, trocas = padrao.subn(lambda m: "const DADOS_RESERVA = " + compacto + ";", html, count=1)
     if trocas != 1:
-        print("Erro: não encontrei a linha 'const DADOS_RESERVA' no HTML. Nada foi alterado no HTML.")
+        print("Erro: não encontrei o bloco 'const DADOS_RESERVA' seguido de 'const PLANILHA' no HTML.")
+        print("Confira se o HTML é a versão original da página. Nada foi alterado no HTML.")
         sys.exit(1)
-    ARQUIVO_HTML.write_text(novo, encoding="utf-8")
+    # grava sem converter as quebras de linha existentes
+    with open(ARQUIVO_HTML, "w", encoding="utf-8", newline="") as f:
+        f.write(novo)
     print(f"{ARQUIVO_HTML.name} atualizado. Pronto para publicar.")
 
 
