@@ -29,7 +29,7 @@ GID_MATRIZ = "888514790"
 
 PASTA = Path(__file__).resolve().parent
 ARQUIVO_JSON = PASTA / "dados.json"
-ARQUIVO_HTML = PASTA / "recursos-capes-ufcat.html"
+ARQUIVO_HTML = PASTA / "index.html"
 
 # Notas extras que aparecem no card do recurso (nome exato do recurso: texto)
 NOTAS = {

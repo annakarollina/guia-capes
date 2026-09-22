@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Recursos CAPES por curso · Biblioteca UFCAT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Pixelify+Sans:wght@700&family=Silkscreen&display=swap" rel="stylesheet">
+<style>
+:root{
+  --papel:#DFD2A0; --folha:#FFFFFF; --tinta:#000000; --tinta2:#715D3A; --contorno:#000000; --sombra:#93825C;
+  --realce:#297A7D; --acao:#FC821A; --foco:#FC821A; --madeira:#79574F; --madeira2:#93825C; --apoio:#ADA07B;
+  --t-colecao:#297A7D; --t-referencial:#FC821A; --t-dados:#7AAC5C; --t-biblioteca:#B57E73; --t-plataforma:#715D3A;
+  --x-colecao:#FFFFFF; --x-referencial:#000000; --x-dados:#000000; --x-biblioteca:#000000; --x-plataforma:#FFFFFF;
+  --px:4px;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --papel:#000000; --folha:#000000; --tinta:#DFD2A0; --tinta2:#B5A378; --contorno:#DFD2A0; --sombra:#715D3A;
+  --realce:#FC821A; --apoio:#715D3A;
+}}
+:root[data-theme="dark"]{
+  --papel:#000000; --folha:#000000; --tinta:#DFD2A0; --tinta2:#B5A378; --contorno:#DFD2A0; --sombra:#715D3A;
+  --realce:#FC821A; --apoio:#715D3A;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--papel);color:var(--tinta);font:400 1.0625rem/1.55 "Atkinson Hyperlegible",Verdana,system-ui,sans-serif;
+  background-image:radial-gradient(var(--apoio) 1px,transparent 1.5px);background-size:12px 12px}
+a{color:inherit;text-decoration-color:var(--realce);text-decoration-thickness:3px;text-underline-offset:3px}
+a:hover{text-decoration-color:var(--acao)}
+:focus-visible{outline:4px solid var(--foco);outline-offset:3px}
+.wrap{max-width:46rem;margin:0 auto;padding-inline:1.25rem}
+h1,h2,h3{font-family:"Pixelify Sans","Courier New",monospace;font-weight:700;line-height:1.1;margin:0}
+.sil{font-family:Silkscreen,"Courier New",monospace;font-weight:400;letter-spacing:.02em}
+
+/* borda pixelada: contorno com cantos em degrau + sombra sólida */
+.pix{position:relative;margin:var(--px);box-shadow:
+  calc(-1*var(--px)) 0 0 0 var(--contorno), var(--px) 0 0 0 var(--contorno),
+  0 calc(-1*var(--px)) 0 0 var(--contorno), 0 var(--px) 0 0 var(--contorno),
+  calc(2*var(--px)) calc(2*var(--px)) 0 0 var(--sombra)}
+
+.topo{padding-block:2.25rem 1.5rem}
+.inst{font-size:.8125rem;margin:0 0 1.5rem;line-height:1.6}
+.inst span{display:block;font-family:"Atkinson Hyperlegible",Verdana,sans-serif;letter-spacing:0;font-size:.9375rem}
+h1{font-size:clamp(2.4rem,9vw,3.6rem);letter-spacing:.01em;margin-bottom:.75rem;color:var(--tinta);text-shadow:4px 4px 0 var(--acao)}
+.sub{margin:0 0 1.5rem;max-width:36rem}
+.busca{position:relative}
+.busca label{position:absolute;left:-9999px}
+.caixa{background:var(--folha);display:flex;align-items:center;gap:.6rem;padding:.2rem .9rem}
+.caixa .seta{font-family:"Pixelify Sans",monospace;font-weight:700;font-size:1.4rem;color:var(--acao);animation:pisca-seta 1s steps(1) infinite}
+@keyframes pisca-seta{50%{opacity:0}}
+.caixa input{flex:1;min-width:0;font:inherit;font-size:1.125rem;padding:.75rem 0;border:0;background:transparent;color:var(--tinta);caret-color:var(--acao);caret-shape:block}
+.caixa input:focus{outline:none}
+.caixa:focus-within{outline:4px solid var(--foco);outline-offset:6px}
+.caixa input::placeholder{color:var(--tinta2)}
+.lista{position:absolute;z-index:5;left:0;right:0;top:calc(100% + 14px);padding:.35rem;list-style:none;background:var(--folha);max-height:19rem;overflow:auto}
+.lista li{padding:.55rem .75rem;cursor:pointer}
+.lista li[aria-selected="true"],.lista li:hover{background:var(--realce);color:#fff}
+.lista li[aria-selected="true"]::before{content:"▶ ";font-size:.8em}
+.lista .vazio{color:var(--tinta2);cursor:default}
+.lista .vazio:hover{background:none;color:var(--tinta2)}
+.atalhos{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;margin-top:1.4rem;font-size:.9375rem;font-weight:700}
+.linkbtn{background:none;border:0;padding:0;font:inherit;color:var(--tinta);text-decoration:underline;text-decoration-color:var(--realce);text-decoration-thickness:3px;text-underline-offset:3px;cursor:pointer}
+.linkbtn:hover{text-decoration-color:var(--acao)}
+
+/* resultado */
+#resultado{padding-block:1rem}
+.cab{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:.9rem 1rem;margin-bottom:1.4rem}
+.cab h2{font-size:clamp(1.6rem,6vw,2.2rem)}
+.placar{display:inline-block;margin-top:.5rem;background:var(--tinta);color:var(--papel);padding:.3rem .6rem;font-size:.875rem}
+.placar b{color:var(--acao);font-weight:400}
+
+/* botões */
+.btn,.copiar{display:inline-block;font-family:Silkscreen,"Courier New",monospace;font-size:.8125rem;letter-spacing:.02em;padding:.55rem .8rem;text-decoration:none;cursor:pointer;border:0;color:var(--tinta);background:var(--papel)}
+.btn.cheio{background:#297A7D;color:#fff}
+:root:not([data-theme="light"]) .btn.cheio{color:#fff}
+.btn:hover,.copiar:hover{background:var(--acao);color:#000}
+.btn:active,.copiar:active{transform:translate(calc(2*var(--px)),calc(2*var(--px)));box-shadow:
+  calc(-1*var(--px)) 0 0 0 var(--contorno), var(--px) 0 0 0 var(--contorno),
+  0 calc(-1*var(--px)) 0 0 var(--contorno), 0 var(--px) 0 0 var(--contorno)}
+
+/* a estante */
+.estante{background:var(--folha);padding:1rem 1rem .9rem;margin-bottom:2.25rem}
+.prateleira{position:relative;display:flex;align-items:flex-end;gap:4px;height:100px;padding:0 8px;overflow-x:auto;overflow-y:hidden;
+  border-bottom:12px solid var(--madeira);box-shadow:inset 0 -4px 0 0 var(--madeira2)}
+.lombada{flex:0 0 auto;width:16px;border:0;padding:0;cursor:pointer;background:var(--cor);
+  box-shadow:inset 0 0 0 2px #000;
+  background-image:linear-gradient(to bottom,transparent 12px,rgba(0,0,0,.35) 12px,rgba(0,0,0,.35) 16px,transparent 16px,transparent calc(100% - 16px),rgba(255,255,255,.35) calc(100% - 16px),rgba(255,255,255,.35) calc(100% - 12px),transparent calc(100% - 12px));
+  transition:transform .12s steps(2)}
+.lombada:hover,.lombada:focus-visible{transform:translateY(-8px)}
+@media (prefers-reduced-motion:reduce){.lombada{transition:none}}
+.legenda{display:flex;flex-wrap:wrap;gap:.5rem 1.1rem;margin:1rem 0 0;padding:0;list-style:none;font-size:.9375rem}
+.legenda a{text-decoration:none;display:inline-flex;align-items:center;gap:.4rem}
+.legenda a:hover{text-decoration:underline}
+.legenda .ico{width:1.1rem;height:1.1rem;color:var(--cor)}
+.legenda b{font-family:Silkscreen,monospace;font-weight:400}
+.combo{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);pointer-events:none;white-space:nowrap;
+  font-family:"Pixelify Sans",monospace;font-weight:700;font-size:clamp(1.8rem,8vw,2.6rem);color:var(--acao);
+  text-shadow:3px 0 0 #000,-3px 0 0 #000,0 3px 0 #000,0 -3px 0 #000,3px 3px 0 #000,-3px -3px 0 #000,3px -3px 0 #000,-3px 3px 0 #000,6px 6px 0 #000;
+  animation:combo .9s steps(6) forwards}
+@keyframes combo{0%{transform:translate(-50%,-50%) scale(.4);opacity:1}30%{transform:translate(-50%,-50%) scale(1.15)}70%{transform:translate(-60%,-70%) scale(1);opacity:1}100%{transform:translate(-66%,-92%) scale(.9);opacity:0}}
+@media (prefers-reduced-motion:reduce){.combo{display:none}}
+
+/* ícones */
+.ico{display:inline-block;shape-rendering:crispEdges}
+.gicone{flex:0 0 auto;width:2.5rem;height:2.5rem;background:var(--cor);color:var(--corx);display:grid;place-items:center;box-shadow:inset 0 0 0 3px #000}
+.gicone .ico{width:1.5rem;height:1.5rem}
+
+/* grupos e cards */
+.grupo{margin-bottom:2.5rem}
+.gcab{display:flex;gap:.9rem;align-items:flex-start;padding-bottom:.9rem;margin-bottom:1.1rem;border-bottom:4px dashed var(--cor)}
+.gcab h3{font-size:1.5rem}
+.gcab p{margin:.3rem 0 0;font-size:.9375rem}
+.gcab .quando{font-weight:700}
+.recurso{background:var(--folha);padding:1rem 1.1rem 1.1rem 1.4rem;margin:var(--px) var(--px) 1.4rem}
+.recurso::before{content:"";position:absolute;left:0;top:0;bottom:0;width:8px;background:var(--cor)}
+.recurso h4{margin:0 0 .45rem;font-size:1.0625rem;font-weight:700;line-height:1.3}
+.selo{display:inline-block;font-family:Silkscreen,monospace;font-size:.75rem;background:var(--cor);color:var(--corx);padding:.15rem .5rem;margin-bottom:.6rem;box-shadow:inset 0 0 0 2px #000}
+.recurso p{margin:0 0 .5rem}
+.nota{font-size:.9375rem;border-left:4px solid var(--acao);padding:.3rem .7rem}
+details.desc{margin:.25rem 0 .9rem;font-size:.9375rem}
+details.desc summary{cursor:pointer;font-weight:700;text-decoration:underline;text-decoration-color:var(--realce);text-decoration-thickness:3px;text-underline-offset:3px}
+details.desc div{white-space:pre-line;color:var(--tinta2);margin-top:.5rem;max-height:18rem;overflow:auto}
+.acoes{display:flex;flex-wrap:wrap;gap:.9rem}
+.recurso.pisca{animation:pisca 1.1s steps(1)}
+@keyframes pisca{0%,40%{background:var(--acao)}20%,60%,100%{background:var(--folha)}}
+@media (prefers-reduced-motion:reduce){.recurso.pisca{animation:none}}
+
+/* guias */
+.guias{padding-block:1rem 2rem}
+.guia{background:var(--folha);padding:1.3rem 1.3rem 1.1rem;margin:var(--px) var(--px) 1.6rem}
+.guia h2{font-size:1.5rem;margin-bottom:.8rem}
+.guia ol{list-style:none;counter-reset:passo;margin:.25rem 0 .8rem;padding:0}
+.guia ol li{counter-increment:passo;position:relative;padding-left:2.75rem;min-height:2rem;padding-top:.2rem;margin-bottom:.7rem}
+.guia ol li::before{content:counter(passo);position:absolute;left:0;top:0;font-family:Silkscreen,monospace;font-size:.875rem;background:var(--realce);color:#fff;width:2rem;height:2rem;display:grid;place-items:center;box-shadow:inset 0 0 0 2px #000}
+.guia p{margin:.5rem 0}
+.aviso{position:relative;margin:1.1rem var(--px) .5rem;padding:.7rem .9rem;background:var(--papel);font-size:.9375rem}
+.aviso::after{content:"";position:absolute;left:18px;bottom:-16px;width:8px;height:8px;background:var(--contorno);
+  box-shadow:4px -4px 0 0 var(--contorno),-4px -4px 0 0 var(--contorno),0 -4px 0 0 var(--papel)}
+.tipos{list-style:none;margin:0;padding:0}
+.tipos li{display:grid;grid-template-columns:2.5rem 1fr;gap:.9rem;padding:.9rem 0;border-top:4px dotted var(--apoio)}
+.tipos li:first-child{border-top:0}
+.tipos h3{font-size:1.125rem}
+.tipos p{margin:.2rem 0 0;font-size:.9375rem}
+.tipos .ex{color:var(--tinta2)}
+.contato{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:1rem}
+footer{padding-block:1.5rem 2.5rem;font-size:.875rem;border-top:4px solid var(--contorno)}
+.toast{position:fixed;left:50%;bottom:calc(1.25rem + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:#000;color:var(--acao);padding:.6rem 1rem;font-family:Silkscreen,monospace;box-shadow:0 0 0 4px var(--acao);opacity:0;pointer-events:none;transition:opacity .15s steps(1)}
+.toast.on{opacity:1}
+[hidden]{display:none!important}
+</style>
+<style id="contraste-responsivo">
+/* Tema claro: laranja só como fundo (com texto preto) ou enfeite; foco do teclado em preto */
+:root{
+  --tinta2:#6B5531;
+  --x-realce:#FFFFFF;
+  --acao:#FC821A;
+  --acao-bg:#FC821A;
+  --foco:#000000;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --x-realce:#000000;
+  --acao:#FC821A;
+  --acao-bg:#FC821A;
+  --foco:#FC821A;
+}}
+:root[data-theme="dark"]{
+  --x-realce:#000000;
+  --acao:#FC821A;
+  --acao-bg:#FC821A;
+  --foco:#FC821A;
+}
+html{-webkit-text-size-adjust:100%}
+.caixa .seta{color:var(--realce)}
+.legenda .ico{color:var(--corx);background:var(--cor);box-shadow:inset 0 0 0 2px #000;padding:3px;width:1.4rem;height:1.4rem}
+a{overflow-wrap:anywhere}
+.wrap{padding-left:max(1.25rem,env(safe-area-inset-left,0px));padding-right:max(1.25rem,env(safe-area-inset-right,0px))}
+.lista li[aria-selected="true"],.lista li:hover{color:var(--x-realce)}
+.placar b{color:var(--acao-bg)}
+.btn,.copiar{display:inline-flex;align-items:center;justify-content:center;min-height:44px;text-align:center}
+.btn:hover,.copiar:hover{background:var(--acao-bg)}
+.lombada{width:24px}
+.guia ol li::before{color:var(--x-realce)}
+.toast{color:var(--acao-bg);box-shadow:0 0 0 4px var(--acao-bg)}
+@keyframes pisca{0%,40%{background:var(--acao-bg)}20%,60%,100%{background:var(--folha)}}
+@media (max-width:39.99rem){
+  .wrap{padding-left:max(1rem,env(safe-area-inset-left,0px));padding-right:max(1rem,env(safe-area-inset-right,0px))}
+  .topo{padding-block:1.5rem 1rem}
+  .inst{margin-bottom:1.1rem}
+  h1{font-size:clamp(2.15rem,12vw,3rem);text-shadow:3px 3px 0 var(--acao)}
+  .caixa{padding-inline:.7rem}
+  .caixa input{font-size:1rem}
+  .lista{max-height:min(19rem,52vh)}
+  .atalhos{display:grid;gap:.8rem;margin-top:1.25rem}
+  .atalhos a,.linkbtn{min-height:44px;display:flex;align-items:center;text-align:left}
+  .cab{align-items:stretch}
+  .cab>div{min-width:0}
+  .copiar{width:100%}
+  .estante{padding:.8rem .65rem .7rem}
+  .prateleira{height:92px;padding-inline:4px}
+  .legenda{display:grid;grid-template-columns:1fr;gap:.25rem}
+  .legenda a{min-height:44px}
+  .gcab{gap:.7rem}
+  .gcab h3{font-size:1.35rem}
+  .gicone{width:2.25rem;height:2.25rem}
+  .recurso{padding:.9rem .85rem 1rem 1.2rem}
+  .acoes{display:grid;grid-template-columns:1fr;gap:.75rem}
+  .acoes .btn{width:100%}
+  .guia{padding:1.05rem .95rem .95rem}
+  .guia ol li{padding-left:2.55rem}
+  .tipos li{grid-template-columns:2.25rem minmax(0,1fr);gap:.7rem}
+  .toast{width:calc(100% - 2rem);text-align:center}
+}
+@media (min-width:64rem){
+  .wrap{max-width:68rem}
+  .topo{padding-block:3rem 2rem}
+  .grupo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.35rem 1.6rem;align-items:start}
+  .gcab{grid-column:1/-1;margin-bottom:0}
+  .recurso{height:100%;margin-bottom:0}
+  .guias{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.6rem;align-items:start}
+  .guia{height:100%;margin-bottom:0}
+  footer{margin-top:2.5rem}
+}
+</style>
+</head>
+<body>
+<main>
+  <header class="topo wrap">
+    <p class="inst sil">Biblioteca Universitária da UFCAT<span>Bases de dados e revistas científicas assinadas pela CAPES</span></p>
+    <h1>Escolha seu curso</h1>
+    <p class="sub">Digite o nome do curso para ver as bases e revistas científicas que você pode usar de graça pela UFCAT.</p>
+    <div class="busca">
+      <label for="campo">Seu curso</label>
+      <div class="caixa pix"><span class="seta" aria-hidden="true">&gt;</span><input id="campo" type="text" autocomplete="off" placeholder="Ex.: Enfermagem, Química, PPGEDUC" role="combobox" aria-autocomplete="list" aria-controls="opcoes" aria-expanded="false"></div>
+      <ul class="lista pix" id="opcoes" role="listbox" hidden></ul>
+    </div>
+    <div class="atalhos">
+      <a href="#acesso">Como acessar de casa</a>
+      <a href="#tipos">Entenda os tipos de recurso</a>
+      <button class="linkbtn" id="vertodos" type="button">Ver todos os recursos</button>
+    </div>
+  </header>
+
+  <section id="resultado" class="wrap" hidden aria-live="polite"></section>
+
+  <div class="guias wrap">
+    <section class="guia pix" id="acesso">
+      <h2>Como acessar de casa</h2>
+      <p>Dentro da rede da UFCAT o acesso costuma ser reconhecido automaticamente. Em casa ou no celular, entre pela CAFe:</p>
+      <ol>
+        <li>Abra o <a href="https://www.periodicos.capes.gov.br/" target="_blank" rel="noopener">Portal de Periódicos da CAPES</a>.</li>
+        <li>Clique em <strong>Acesso CAFe</strong>, no alto da página.</li>
+        <li>Escolha <strong>UFCAT</strong> e entre com seu login e senha institucionais.</li>
+      </ol>
+      <p class="aviso pix">Se aparecer <strong>Material Gratuito</strong> no alto do Portal, você ainda não entrou pela CAFe. Repita os passos acima.</p>
+    </section>
+
+    <section class="guia pix" id="pesquisar">
+      <h2>Como pesquisar em um recurso</h2>
+      <ol>
+        <li>No Portal CAPES, já conectado pela CAFe, abra <strong>Lista de Bases e Coleções</strong>.</li>
+        <li>Busque o nome do recurso que aparece na sua lista de curso.</li>
+        <li>Clique em <strong>Ver no editor</strong> para pesquisar direto na plataforma.</li>
+      </ol>
+      <p>Cada recurso funciona de um jeito. Use o botão <strong>Como pesquisar</strong> de cada um para ver o tutorial.</p>
+    </section>
+
+    <section class="guia pix" id="tipos">
+      <h2>Entenda os tipos de recurso</h2>
+      <ul class="tipos" id="listatipos"></ul>
+    </section>
+
+    <section class="guia pix" id="naoabre">
+      <h2>Achei o artigo, mas o texto não abre</h2>
+      <p>Isso é comum em bases referenciais, como a Scopus: elas mostram a referência e o resumo, mas o texto completo fica em outra coleção.</p>
+      <ol>
+        <li>Confira se você entrou pela CAFe.</li>
+        <li>Copie o título do artigo e busque no Portal CAPES. Ele pode estar em uma das coleções assinadas.</li>
+        <li>Se não encontrar, fale com a Biblioteca. Verificamos outras formas de acesso.</li>
+      </ol>
+    </section>
+
+    <section class="guia pix" id="ajuda">
+      <h2>Problemas de acesso</h2>
+      <p>Envie um e-mail para a Biblioteca com:</p>
+      <ol>
+        <li>Assunto: <strong>Dificuldade de acesso - nome do recurso</strong></li>
+        <li>Um print da mensagem de erro.</li>
+        <li>Um print do seu IP, que aparece em <a href="https://meuip.com.br" target="_blank" rel="noopener">meuip.com.br</a>.</li>
+      </ol>
+      <p>A CAPES também oferece treinamentos gratuitos, com certificado, sobre cada base. Veja em <a href="https://www.periodicos.capes.gov.br/" target="_blank" rel="noopener">periodicos.capes.gov.br</a>.</p>
+      <div class="contato">
+        <a class="btn cheio pix" href="mailto:retec.biblioteca@ufcat.edu.br?subject=Dificuldade%20de%20acesso%20-%20">Enviar e-mail</a>
+        <a class="btn vazado pix" href="https://wa.me/556496006895" target="_blank" rel="noopener">WhatsApp (64) 9600-6895</a>
+      </div>
+    </section>
+  </div>
+</main>
+<footer class="wrap">
+  Biblioteca Universitária da UFCAT · Coordenação de Recursos Tecnológicos<br>
+  <span id="origem">Dados da planilha de mapeamento de recursos.</span><br>
+  Fonte: <a href="https://docs.google.com/spreadsheets/d/1chl8FY9zLBLa1FyRBBfup38UjAMVyQQwVMd8tdfaNZM/edit?usp=sharing" target="_blank" rel="noopener">planilha de mapeamento dos recursos contratados para os cursos da UFCAT</a>.
+</footer>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<script>
+const DADOS_RESERVA = {"recursos": [{"id": "american-institute-of-physics-publishing", "nome": "American Institute of Physics Publishing (AIPP)", "tipo": "Coleção de periódicos", "resumo": "A coleção disponibiliza periódicos da física, química, engenharia e áreas correlatas, cobrindo pesquisa básica e aplicada.", "desc": "A coleção disponibiliza periódicos da física, química, engenharia e áreas correlatas, cobrindo pesquisa básica e aplicada.", "tutorial": "https://www.periodicos.capes.gov.br/index.php/base?code=93", "nota": ""}], "cursos": [], "geral": []};
+const PLANILHA = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQQCO8sZ4oCALSf7vxBioerB0RLS4gcr-eI984cjQlx6LK7nZquk3j9GU6wEpwidppw4qox_V5U0qDf/pub?output=csv&gid=";
+const GID_RECURSOS = "1270713400", GID_MATRIZ = "888514790";
+const PORTAL = "https://www.periodicos.capes.gov.br/";
+
+const GRADES = {
+  rev:["..........",".###..###.","#...##...#","#.##..##.#","#...##...#","#.##..##.#","#...##...#","#.##..##.#","####..####",".........."],
+  ref:["..####....",".#....#...","#.##...#..","#.#....#..","#......#..","#......#..",".#....#...","..####.#..",".......##.","........##"],
+  dad:["..######..",".#......#.",".########.",".#......#.",".########.",".#......#.",".########.",".#......#.","..######..",".........."],
+  bib:["....##....","..##..##..","##########",".#.#..#.#.",".#.#..#.#.",".#.#..#.#.",".#.#..#.#.","##########","##########",".........."],
+  pla:["##########","#........#","#......#.#","#....#.#.#","#..#.#.#.#","#..#.#.#.#","#........#","##########","....##....","..######.."]
+};
+const ICONES = Object.fromEntries(Object.entries(GRADES).map(([k, g]) => {
+  let r = ""; g.forEach((l, y) => [...l].forEach((c, x) => { if (c === "#") r += `<rect x="${x}" y="${y}" width="1" height="1"/>`; }));
+  return [k, `<svg class="ico" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true">${r}</svg>`];
+}));
+const TIPOS = [
+  {nome:"Coleção de periódicos", cor:"--t-colecao", corx:"--x-colecao", icone:"rev", selo:"Artigos completos",
+   oque:"Revistas científicas de uma editora, com os artigos completos para ler e baixar.",
+   quando:"Use quando você já sabe a revista ou quer ler artigos completos da sua área."},
+  {nome:"Base referencial", cor:"--t-referencial", corx:"--x-referencial", icone:"ref", selo:"Referências e resumos",
+   oque:"Mostra o que já foi publicado sobre um assunto, com referência e resumo. Nem sempre traz o texto completo.",
+   quando:"Use para levantamento bibliográfico, revisão de literatura e TCC."},
+  {nome:"Base de dados", cor:"--t-dados", corx:"--x-dados", icone:"dad", selo:"Conteúdo especializado",
+   oque:"Conteúdo especializado de uma área para consultar direto: normas técnicas, dados químicos, estruturas, artigos e livros.",
+   quando:"Use quando precisa de uma informação técnica específica, como uma norma."},
+  {nome:"Biblioteca digital", cor:"--t-biblioteca", corx:"--x-biblioteca", icone:"bib", selo:"Vários formatos",
+   oque:"Artigos, livros, anais de eventos e outros documentos no mesmo lugar, em texto completo.",
+   quando:"Use para explorar um tema em diferentes tipos de fonte."},
+  {nome:"Plataforma", cor:"--t-plataforma", corx:"--x-plataforma", icone:"pla", selo:"Ferramentas de análise",
+   oque:"Ambiente com ferramentas de análise e bases reunidas, além do conteúdo.",
+   quando:"Use para analisar dados ou acompanhar uma área em profundidade."}
+];
+const tipoDe = n => TIPOS.find(t => t.nome === n) || TIPOS[0];
+
+let dados = DADOS_RESERVA;
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const norm = s => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+const slug = s => norm(s).replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
+/* tenta ler a planilha ao vivo; se falhar, usa a cópia embutida */
+function lerCSV(gid){
+  return new Promise((ok, erro) => {
+    if (!window.Papa) return erro(new Error("sem Papa"));
+    Papa.parse(PLANILHA + gid, {download:true, header:true, skipEmptyLines:true, complete:r => ok(r.data), error:erro});
+  });
+}
+function resumir(d){
+  const p = String(d).split("\n")[0].trim().split(/(?<=[a-z\)])\. (?=[A-ZÁÉÍÓÚ])/)[0];
+  let s = p.endsWith(".") ? p : p + ".";
+  if (s.length > 260) s = s.slice(0, 250).replace(/\s+\S*$/, "") + "…";
+  return s;
+}
+async function carregarAoVivo(){
+  const tempo = new Promise((_, e) => setTimeout(() => e(new Error("tempo")), 5000));
+  const [rec, mat] = await Promise.race([Promise.all([lerCSV(GID_RECURSOS), lerCSV(GID_MATRIZ)]), tempo]);
+  const ativos = rec.filter(x => x["Status"] === "Ativo" && x["Nome do Recurso"]);
+  if (!ativos.length) throw new Error("vazio");
+  const reserva = Object.fromEntries(DADOS_RESERVA.recursos.map(r => [r.nome, r]));
+  const recursos = ativos.map(x => {
+    const nome = x["Nome do Recurso"];
+    const urls = (x["Tutoriais (CAPES)"] || "").match(/https?:\/\/\S+/g) || [];
+    const uteis = urls.filter(u => !/tandfonline\.com/i.test(u)); const tut = uteis.find(u => /periodicos\.capes/.test(u)) || uteis[0] || "";
+    return {id: slug(nome).slice(0, 40), nome, tipo: x["Tipo"], resumo: resumir(x["Descrição"] || ""),
+            desc: (x["Descrição"] || "").trim(), tutorial: tut.replace(/\.$/, ""), nota: (reserva[nome] || {}).nota || ""};
+  });
+  const idPorNome = Object.fromEntries(recursos.map(r => [r.nome, r.id]));
+  const mapa = {};
+  mat.filter(x => String(x["Disponível"]).toUpperCase() === "TRUE").forEach(x => {
+    const id = idPorNome[x["Recursos disponíveis"]]; if (!id) return;
+    (mapa[x["Cursos"]] ||= []).push(id);
+  });
+  const chaveGeral = Object.keys(mapa).find(k => k.startsWith("Todos os cursos"));
+  const geral = chaveGeral ? mapa[chaveGeral] : []; if (chaveGeral) delete mapa[chaveGeral];
+  const cursos = Object.keys(mapa).sort((a, b) => a.localeCompare(b, "pt")).map(n => ({nome:n, slug:slug(n), recursos:mapa[n]}));
+  return {recursos, cursos, geral};
+}
+
+/* busca de curso */
+const campo = $("#campo"), lista = $("#opcoes");
+let marcado = -1, visiveis = [];
+function mostrarOpcoes(){
+  const q = norm(campo.value.trim());
+  visiveis = dados.cursos.filter(c => !q || norm(c.nome).includes(q)).slice(0, 40);
+  marcado = visiveis.length ? 0 : -1;
+  lista.innerHTML = visiveis.length
+    ? visiveis.map((c, i) => `<li role="option" id="op${i}" data-i="${i}" aria-selected="${i === marcado}">${esc(c.nome)}</li>`).join("")
+    : `<li class="vazio">Nenhum curso encontrado. Tente outra palavra, como "Engenharia" ou a sigla do programa.</li>`;
+  lista.hidden = false; campo.setAttribute("aria-expanded", "true");
+  campo.setAttribute("aria-activedescendant", marcado >= 0 ? "op0" : "");
+}
+function fechar(){ lista.hidden = true; campo.setAttribute("aria-expanded", "false"); }
+function marcar(i){
+  marcado = i;
+  lista.querySelectorAll("li[role=option]").forEach((li, j) => li.setAttribute("aria-selected", j === i));
+  const li = lista.querySelector(`#op${i}`); if (li) { li.scrollIntoView({block:"nearest"}); campo.setAttribute("aria-activedescendant", li.id); }
+}
+campo.addEventListener("input", mostrarOpcoes);
+campo.addEventListener("focus", mostrarOpcoes);
+campo.addEventListener("keydown", e => {
+  if (lista.hidden && e.key === "ArrowDown") return mostrarOpcoes();
+  if (e.key === "ArrowDown") { e.preventDefault(); marcar(Math.min(marcado + 1, visiveis.length - 1)); }
+  else if (e.key === "ArrowUp") { e.preventDefault(); marcar(Math.max(marcado - 1, 0)); }
+  else if (e.key === "Enter") { e.preventDefault(); if (visiveis[marcado]) escolher(visiveis[marcado]); }
+  else if (e.key === "Escape") fechar();
+});
+lista.addEventListener("mousedown", e => { const li = e.target.closest("li[data-i]"); if (li) { e.preventDefault(); escolher(visiveis[+li.dataset.i]); } });
+document.addEventListener("click", e => { if (!e.target.closest(".busca")) fechar(); });
+$("#vertodos").addEventListener("click", () => escolher(null));
+
+function escolher(curso){
+  fechar();
+  campo.value = curso ? curso.nome : "";
+  try { history.replaceState(null, "", "#curso=" + (curso ? curso.slug : "todos")); } catch(e) {}
+  mostrarCurso(curso, true);
+  $("#resultado").scrollIntoView({block:"start"});
+}
+
+/* resultado */
+function mostrarCurso(curso, combo){
+  const porId = Object.fromEntries(dados.recursos.map(r => [r.id, r]));
+  const ids = curso ? [...new Set([...(curso.recursos || []), ...(dados.geral || [])])] : dados.recursos.map(r => r.id);
+  const recs = ids.map(id => porId[id]).filter(Boolean);
+  const grupos = TIPOS.map(t => ({t, itens: recs.filter(r => r.tipo === t.nome).sort((a, b) => a.nome.localeCompare(b.nome, "pt"))})).filter(g => g.itens.length);
+  const titulo = curso ? curso.nome : "Todos os recursos";
+  const lombadas = grupos.flatMap(g => g.itens.map((r, i) => {
+    const h = 60 + 4 * ((r.nome.length * 7 + i * 13) % 8);
+    return `<button class="lombada" style="height:${h}px;--cor:var(${g.t.cor})" data-alvo="${r.id}" title="${esc(r.nome)}" aria-label="Ir para ${esc(r.nome)}"></button>`;
+  })).join("");
+  const legenda = grupos.map(g => `<li style="--cor:var(${g.t.cor});--corx:var(${g.t.corx})"><a href="#g-${slug(g.t.nome)}">${ICONES[g.t.icone]}<b>${g.itens.length}</b> ${esc(g.t.nome.toLowerCase())}</a></li>`).join("");
+  const blocos = grupos.map(g => `
+    <section class="grupo" id="g-${slug(g.t.nome)}" style="--cor:var(${g.t.cor});--corx:var(${g.t.corx})">
+      <div class="gcab"><span class="gicone">${ICONES[g.t.icone]}</span>
+        <div><h3>${esc(g.t.nome)}</h3><p>${esc(g.t.oque)}</p><p class="quando">${esc(g.t.quando)}</p></div></div>
+      ${g.itens.map(r => `
+        <article class="recurso pix" id="r-${r.id}">
+          <h4>${esc(r.nome)}</h4>
+          <span class="selo">${esc(g.t.selo)}</span>
+          <p>${esc(r.resumo)}</p>
+          ${r.nota ? `<p class="nota">${esc(r.nota)}</p>` : ""}
+          ${r.desc && r.desc.length > r.resumo.length + 20 ? `<details class="desc"><summary>Ler descrição completa</summary><div>${esc(r.desc)}</div></details>` : ""}
+          <div class="acoes">
+            ${r.tutorial ? `<a class="btn cheio pix" href="${esc(r.tutorial)}" target="_blank" rel="noopener">Como pesquisar</a>`
+                         : `<a class="btn cheio pix" href="#pesquisar">Como pesquisar</a>`}
+            <a class="btn vazado pix" href="${PORTAL}" target="_blank" rel="noopener">Abrir no Portal CAPES</a>
+          </div>
+        </article>`).join("")}
+    </section>`).join("");
+  const res = $("#resultado");
+  res.innerHTML = `
+    <div class="cab"><div><h2>${esc(titulo)}</h2><span class="placar sil"><b>${recs.length}</b> recursos</span></div>
+      ${curso ? `<button class="copiar pix" id="copiar" type="button">Copiar link do meu curso</button>` : ""}</div>
+    <div class="estante pix"><div class="prateleira" role="group" aria-label="Recursos do curso, por tipo">${lombadas}</div><ul class="legenda">${legenda}</ul></div>
+    ${blocos}`;
+  res.hidden = false;
+  if (combo) { const e = document.createElement("div"); e.className = "combo"; e.setAttribute("aria-hidden", "true");
+    e.textContent = "+" + recs.length + " recursos!"; res.querySelector(".estante").appendChild(e); setTimeout(() => e.remove(), 1000); }
+  res.querySelectorAll(".lombada").forEach(b => b.addEventListener("click", () => {
+    const alvo = $("#r-" + b.dataset.alvo); if (!alvo) return;
+    alvo.scrollIntoView({block:"center"}); alvo.classList.remove("pisca"); void alvo.offsetWidth; alvo.classList.add("pisca");
+  }));
+  const cp = $("#copiar");
+  if (cp) cp.addEventListener("click", async () => {
+    try { await navigator.clipboard.writeText(location.href); aviso("Link copiado"); }
+    catch(e) { aviso("Copie o endereço da barra do navegador"); }
+  });
+}
+function aviso(t){ const el = $("#toast"); el.textContent = t; el.classList.add("on"); setTimeout(() => el.classList.remove("on"), 2200); }
+
+function listarTipos(){
+  $("#listatipos").innerHTML = TIPOS.map(t => {
+    const ex = dados.recursos.filter(r => r.tipo === t.nome).slice(0, 4).map(r => r.nome.replace(/^(Periódicos da coleção |Periódicos da |Base de dados |Base de Dados |Coleção )/i, "")).join(", ");
+    return `<li style="--cor:var(${t.cor});--corx:var(${t.corx})"><span class="gicone">${ICONES[t.icone]}</span>
+      <div><h3>${esc(t.nome)}</h3><p>${esc(t.oque)}</p><p>${esc(t.quando)}</p>${ex ? `<p class="ex">Exemplos: ${esc(ex)}.</p>` : ""}</div></li>`;
+  }).join("");
+}
+function lerEndereco(){
+  const m = (location.hash + "&" + location.search).match(/curso=([a-z0-9-]+)/);
+  if (!m) return;
+  if (m[1] === "todos") return mostrarCurso(null);
+  const c = dados.cursos.find(c => c.slug === m[1]);
+  if (c) { campo.value = c.nome; mostrarCurso(c); }
+}
+
+listarTipos(); lerEndereco();
+carregarAoVivo().then(d => {
+  dados = d; listarTipos(); lerEndereco();
+  $("#origem").textContent = "Dados lidos agora da planilha de mapeamento de recursos.";
+}).catch(() => {
+  $("#origem").textContent = "Dados da planilha de mapeamento de recursos, cópia de setembro de 2026.";
+});
+</script>
+</body>
+</html>
