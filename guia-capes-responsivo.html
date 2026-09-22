@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Carregando Guia CAPES responsivo…</title>
+<style>
+  body{margin:0;min-height:100vh;display:grid;place-items:center;padding:1.5rem;box-sizing:border-box;background:#DFD2A0;color:#000;font:700 1rem/1.5 system-ui,sans-serif;text-align:center}
+  .erro{max-width:38rem;background:#fff;border:4px solid #000;padding:1rem;box-shadow:8px 8px 0 #93825C}
+</style>
+</head>
+<body>Carregando Guia CAPES…
+<script>
+const origem="https://raw.githubusercontent.com/annakarollina/guia-capes/main/recursos-capes-ufcat.html";
+const melhorias=`
+<style id="contraste-responsivo">
+:root{
+  --tinta2:#6B5531;
+  --x-realce:#FFFFFF;
+  --acao:#943A00;
+  --acao-bg:#FC821A;
+  --foco:#943A00;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --x-realce:#000000;
+  --acao:#FC821A;
+  --acao-bg:#FC821A;
+  --foco:#FC821A;
+}}
+:root[data-theme="dark"]{
+  --x-realce:#000000;
+  --acao:#FC821A;
+  --acao-bg:#FC821A;
+  --foco:#FC821A;
+}
+html{-webkit-text-size-adjust:100%}
+a{overflow-wrap:anywhere}
+.wrap{padding-left:max(1.25rem,env(safe-area-inset-left,0px));padding-right:max(1.25rem,env(safe-area-inset-right,0px))}
+.lista li[aria-selected="true"],.lista li:hover{color:var(--x-realce)}
+.placar b{color:var(--acao-bg)}
+.btn,.copiar{display:inline-flex;align-items:center;justify-content:center;min-height:44px;text-align:center}
+.btn:hover,.copiar:hover{background:var(--acao-bg)}
+.lombada{width:24px}
+.guia ol li::before{color:var(--x-realce)}
+.toast{color:var(--acao-bg);box-shadow:0 0 0 4px var(--acao-bg)}
+@keyframes pisca{0%,40%{background:var(--acao-bg)}20%,60%,100%{background:var(--folha)}}
+@media (max-width:39.99rem){
+  .wrap{padding-left:max(1rem,env(safe-area-inset-left,0px));padding-right:max(1rem,env(safe-area-inset-right,0px))}
+  .topo{padding-block:1.5rem 1rem}
+  .inst{margin-bottom:1.1rem}
+  h1{font-size:clamp(2.15rem,12vw,3rem);text-shadow:3px 3px 0 var(--acao)}
+  .caixa{padding-inline:.7rem}
+  .caixa input{font-size:1rem}
+  .lista{max-height:min(19rem,52vh)}
+  .atalhos{display:grid;gap:.8rem;margin-top:1.25rem}
+  .atalhos a,.linkbtn{min-height:44px;display:flex;align-items:center;text-align:left}
+  .cab{align-items:stretch}
+  .cab>div{min-width:0}
+  .copiar{width:100%}
+  .estante{padding:.8rem .65rem .7rem}
+  .prateleira{height:92px;padding-inline:4px}
+  .legenda{display:grid;grid-template-columns:1fr;gap:.25rem}
+  .legenda a{min-height:44px}
+  .gcab{gap:.7rem}
+  .gcab h3{font-size:1.35rem}
+  .gicone{width:2.25rem;height:2.25rem}
+  .recurso{padding:.9rem .85rem 1rem 1.2rem}
+  .acoes{display:grid;grid-template-columns:1fr;gap:.75rem}
+  .acoes .btn{width:100%}
+  .guia{padding:1.05rem .95rem .95rem}
+  .guia ol li{padding-left:2.55rem}
+  .tipos li{grid-template-columns:2.25rem minmax(0,1fr);gap:.7rem}
+  .toast{width:calc(100% - 2rem);text-align:center}
+}
+@media (min-width:64rem){
+  .wrap{max-width:68rem}
+  .topo{padding-block:3rem 2rem}
+  .grupo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.35rem 1.6rem;align-items:start}
+  .gcab{grid-column:1/-1;margin-bottom:0}
+  .recurso{height:100%;margin-bottom:0}
+  .guias{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.6rem;align-items:start}
+  .guia{height:100%;margin-bottom:0}
+  footer{margin-top:2.5rem}
+}
+</style>`;
+fetch(origem,{cache:"no-store"})
+  .then(r=>{if(!r.ok)throw new Error("HTTP "+r.status);return r.text()})
+  .then(html=>{
+    html=html.replace("</head>",melhorias+"</head>");
+    document.open();
+    document.write(html);
+    document.close();
+  })
+  .catch(()=>{
+    document.body.innerHTML='<div class="erro">Não foi possível carregar o conteúdo. Verifique sua conexão com a internet e tente novamente.</div>';
+  });
+</script>
+</body>
+</html>
