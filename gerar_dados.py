@@ -89,6 +89,11 @@ def gerar_titulos(colecoes_ativas):
     fora = [c for c in colecoes if c not in colecoes_ativas]
     if fora:
         print("Coleções da planilha de títulos que não estão ativas na planilha de recursos:", "; ".join(fora))
+    contagem = {}
+    for linha in titulos:
+        nome = colecoes[linha[1]]
+        contagem[nome] = contagem.get(nome, 0) + 1
+    return contagem
 
 
 def slug(texto):
@@ -144,6 +149,12 @@ def principal():
     chave_todos = next((k for k in por_curso if k.startswith(LINHA_TODOS)), None)
     geral = por_curso.pop(chave_todos, []) if chave_todos else []
 
+    # quantas revistas cada coleção tem na planilha de títulos (para o botão "Ver as N revistas")
+    contagem = gerar_titulos({r["nome"] for r in recursos})
+    for r in recursos:
+        if contagem.get(r["nome"]):
+            r["revistas"] = contagem[r["nome"]]
+
     dados = {
         "recursos": recursos,
         "cursos": [{"nome": c, "slug": slug(c), "recursos": ids}
@@ -153,8 +164,6 @@ def principal():
 
     ARQUIVO_JSON.write_text(json.dumps(dados, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"dados.json gerado: {len(recursos)} recursos ativos, {len(por_curso)} cursos.")
-
-    gerar_titulos({r["nome"] for r in recursos})
 
     sem_tutorial = [r["nome"] for r in recursos if not r["tutorial"]]
     if sem_tutorial:

@@ -288,6 +288,10 @@ h1{color:#FC821A;text-shadow:2px 0 0 #000,-2px 0 0 #000,0 2px 0 #000,0 -2px 0 #0
   .linha-busca{flex-direction:column}
 }
 </style>
+<style id="simetria">
+/* rodapé com a mesma largura do painel; o texto fica num .wrap interno, alinhado ao conteúdo */
+footer{padding-inline:0!important}
+</style>
 <style id="contraste-responsivo">
 /* Espaço para ajustes vindos do Figma. Cole aqui o CSS extra. */
 </style>
@@ -331,10 +335,10 @@ h1{color:#FC821A;text-shadow:2px 0 0 #000,-2px 0 0 #000,0 2px 0 #000,0 -2px 0 #0
     </section>
   </div>
 </main>
-<footer class="wrap">
+<footer><div class="wrap">
   Biblioteca Universitária da UFCAT · Coordenação de Recursos Tecnológicos<br>
   <a href="./">Voltar ao guia de recursos CAPES por curso</a>
-</footer>
+</div></footer>
 <div class="toast" id="toast" role="status"></div>
 <script>
 const TITULOS_EMBUTIDOS = null;
