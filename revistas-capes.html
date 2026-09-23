@@ -298,6 +298,26 @@ footer{padding-inline:0!important}
 .inst span{font-size:1.25rem;line-height:1.45;margin-top:.35rem}
 @media (max-width:39.99rem){.inst{font-size:1.0625rem}.inst span{font-size:1.0625rem}}
 </style>
+<style id="lateral-acesso">
+/* coluna lateral: filtros + guia de acesso, fixos juntos no computador */
+.guia-acesso ol{list-style:none;counter-reset:passo;margin:.4rem 0 .8rem;padding:0}
+.guia-acesso ol li{counter-increment:passo;position:relative;padding-left:2.7rem;min-height:2rem;padding-top:.15rem;margin-bottom:.7rem}
+.guia-acesso ol li::before{content:counter(passo);position:absolute;left:0;top:0;width:2rem;height:2rem;display:grid;place-items:center;
+  font-family:Silkscreen,monospace;font-size:.875rem;background:#297A7D;color:#FFFFFF;box-shadow:inset 0 0 0 2px var(--contorno)}
+.guia-acesso .corpo p{margin:.5rem 0}
+.guia-acesso .corpo .aviso{margin:1rem 2px 1.4rem}
+.nota-acesso{font-size:.9375rem;color:var(--tinta2)}
+@media (max-width:63.99rem){
+  .lateral{display:contents}
+  .layout.revpg .filtros{order:1}
+  .layout.revpg .guia-acesso{order:-1}
+  .layout.revpg .resultados{order:3}
+}
+@media (min-width:64rem){
+  .layout.revpg .filtros{position:static;max-height:none;overflow:visible;grid-column:auto;grid-row:auto}
+  .layout.revpg .lateral{grid-column:2;grid-row:1;position:sticky;top:1rem;max-height:calc(100vh - 2rem);overflow-y:auto;display:grid;gap:1.4rem;align-content:start;padding:2px 10px 10px 2px}
+}
+</style>
 <style id="contraste-responsivo">
 /* Espaço para ajustes vindos do Figma. Cole aqui o CSS extra. */
 </style>
@@ -315,7 +335,8 @@ footer{padding-inline:0!important}
   </header></div>
 
   <div class="layout revpg wrap">
-    <aside class="filtros janela" aria-label="Busca e filtros">
+    <div class="lateral">
+    <section class="filtros janela" aria-label="Busca e filtros">
       <div class="barra"><svg class="ico" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><rect x="0" y="0" width="1" height="1"/><rect x="1" y="0" width="1" height="1"/><rect x="2" y="0" width="1" height="1"/><rect x="3" y="0" width="1" height="1"/><rect x="4" y="0" width="1" height="1"/><rect x="5" y="0" width="1" height="1"/><rect x="6" y="0" width="1" height="1"/><rect x="7" y="0" width="1" height="1"/><rect x="8" y="0" width="1" height="1"/><rect x="9" y="0" width="1" height="1"/><rect x="0" y="1" width="1" height="1"/><rect x="1" y="1" width="1" height="1"/><rect x="2" y="1" width="1" height="1"/><rect x="3" y="1" width="1" height="1"/><rect x="4" y="1" width="1" height="1"/><rect x="5" y="1" width="1" height="1"/><rect x="6" y="1" width="1" height="1"/><rect x="7" y="1" width="1" height="1"/><rect x="8" y="1" width="1" height="1"/><rect x="9" y="1" width="1" height="1"/><rect x="1" y="2" width="1" height="1"/><rect x="2" y="2" width="1" height="1"/><rect x="3" y="2" width="1" height="1"/><rect x="4" y="2" width="1" height="1"/><rect x="5" y="2" width="1" height="1"/><rect x="6" y="2" width="1" height="1"/><rect x="7" y="2" width="1" height="1"/><rect x="8" y="2" width="1" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="3" y="3" width="1" height="1"/><rect x="4" y="3" width="1" height="1"/><rect x="5" y="3" width="1" height="1"/><rect x="6" y="3" width="1" height="1"/><rect x="7" y="3" width="1" height="1"/><rect x="3" y="4" width="1" height="1"/><rect x="4" y="4" width="1" height="1"/><rect x="5" y="4" width="1" height="1"/><rect x="6" y="4" width="1" height="1"/><rect x="3" y="5" width="1" height="1"/><rect x="4" y="5" width="1" height="1"/><rect x="5" y="5" width="1" height="1"/><rect x="6" y="5" width="1" height="1"/><rect x="3" y="6" width="1" height="1"/><rect x="4" y="6" width="1" height="1"/><rect x="5" y="6" width="1" height="1"/><rect x="6" y="6" width="1" height="1"/><rect x="3" y="7" width="1" height="1"/><rect x="4" y="7" width="1" height="1"/><rect x="5" y="7" width="1" height="1"/><rect x="6" y="7" width="1" height="1"/><rect x="3" y="8" width="1" height="1"/><rect x="4" y="8" width="1" height="1"/><rect x="5" y="8" width="1" height="1"/><rect x="3" y="9" width="1" height="1"/><rect x="4" y="9" width="1" height="1"/></svg><h2>Busca e filtros</h2></div>
       <div class="corpo">
         <div class="caixa forte"><span class="lupa"><svg class="ico" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><rect x="2" y="0" width="1" height="1"/><rect x="3" y="0" width="1" height="1"/><rect x="4" y="0" width="1" height="1"/><rect x="5" y="0" width="1" height="1"/><rect x="1" y="1" width="1" height="1"/><rect x="6" y="1" width="1" height="1"/><rect x="0" y="2" width="1" height="1"/><rect x="2" y="2" width="1" height="1"/><rect x="3" y="2" width="1" height="1"/><rect x="7" y="2" width="1" height="1"/><rect x="0" y="3" width="1" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="7" y="3" width="1" height="1"/><rect x="0" y="4" width="1" height="1"/><rect x="7" y="4" width="1" height="1"/><rect x="0" y="5" width="1" height="1"/><rect x="7" y="5" width="1" height="1"/><rect x="1" y="6" width="1" height="1"/><rect x="6" y="6" width="1" height="1"/><rect x="2" y="7" width="1" height="1"/><rect x="3" y="7" width="1" height="1"/><rect x="4" y="7" width="1" height="1"/><rect x="5" y="7" width="1" height="1"/><rect x="7" y="7" width="1" height="1"/><rect x="7" y="8" width="1" height="1"/><rect x="8" y="8" width="1" height="1"/><rect x="8" y="9" width="1" height="1"/><rect x="9" y="9" width="1" height="1"/></svg></span><label class="sr" for="q">Título, ISSN, coleção ou tema</label><input id="q" type="search" autocomplete="off" placeholder="Título, ISSN, coleção ou tema"></div>
@@ -328,7 +349,21 @@ footer{padding-inline:0!important}
           <button class="btn vazado" id="limpar" type="button">Limpar filtros</button>
         </div>
       </div>
-    </aside>
+    </section>
+      <section class="janela guia-acesso" id="acesso-revistas" aria-labelledby="titulo-acesso">
+        <div class="barra"><svg class="ico" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><rect x="4" y="0" width="1" height="1"/><rect x="5" y="0" width="1" height="1"/><rect x="3" y="1" width="1" height="1"/><rect x="4" y="1" width="1" height="1"/><rect x="5" y="1" width="1" height="1"/><rect x="6" y="1" width="1" height="1"/><rect x="2" y="2" width="1" height="1"/><rect x="3" y="2" width="1" height="1"/><rect x="4" y="2" width="1" height="1"/><rect x="5" y="2" width="1" height="1"/><rect x="6" y="2" width="1" height="1"/><rect x="7" y="2" width="1" height="1"/><rect x="1" y="3" width="1" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="3" y="3" width="1" height="1"/><rect x="4" y="3" width="1" height="1"/><rect x="5" y="3" width="1" height="1"/><rect x="6" y="3" width="1" height="1"/><rect x="7" y="3" width="1" height="1"/><rect x="8" y="3" width="1" height="1"/><rect x="0" y="4" width="1" height="1"/><rect x="1" y="4" width="1" height="1"/><rect x="2" y="4" width="1" height="1"/><rect x="3" y="4" width="1" height="1"/><rect x="4" y="4" width="1" height="1"/><rect x="5" y="4" width="1" height="1"/><rect x="6" y="4" width="1" height="1"/><rect x="7" y="4" width="1" height="1"/><rect x="8" y="4" width="1" height="1"/><rect x="9" y="4" width="1" height="1"/><rect x="1" y="5" width="1" height="1"/><rect x="8" y="5" width="1" height="1"/><rect x="1" y="6" width="1" height="1"/><rect x="3" y="6" width="1" height="1"/><rect x="4" y="6" width="1" height="1"/><rect x="8" y="6" width="1" height="1"/><rect x="1" y="7" width="1" height="1"/><rect x="3" y="7" width="1" height="1"/><rect x="4" y="7" width="1" height="1"/><rect x="6" y="7" width="1" height="1"/><rect x="8" y="7" width="1" height="1"/><rect x="1" y="8" width="1" height="1"/><rect x="3" y="8" width="1" height="1"/><rect x="4" y="8" width="1" height="1"/><rect x="8" y="8" width="1" height="1"/><rect x="1" y="9" width="1" height="1"/><rect x="2" y="9" width="1" height="1"/><rect x="3" y="9" width="1" height="1"/><rect x="4" y="9" width="1" height="1"/><rect x="5" y="9" width="1" height="1"/><rect x="6" y="9" width="1" height="1"/><rect x="7" y="9" width="1" height="1"/><rect x="8" y="9" width="1" height="1"/></svg><h2 id="titulo-acesso">Como acessar as revistas</h2></div>
+        <div class="corpo">
+          <p>As revistas são assinadas pela CAPES, que libera o acesso para a UFCAT. O caminho principal é pelo Portal:</p>
+          <ol>
+            <li>Abra o <a href="https://www.periodicos.capes.gov.br/" target="_blank" rel="noopener">Portal de Periódicos da CAPES</a> e entre em <a href="https://www.periodicos.capes.gov.br/index.php/acervo/lista-a-z-periodicos.html" target="_blank" rel="noopener"><strong>Lista de periódicos</strong></a>.</li>
+            <li>Pesquise o título da revista.</li>
+            <li>Clique em <strong>Acesse</strong>.</li>
+          </ol>
+          <p class="aviso">Se aparecer <strong>Material Gratuito</strong> no canto superior do Portal, clique em <strong>Acesso CAFe</strong>, escolha <strong>UFCAT</strong> e entre com seu login institucional.</p>
+          <p class="nota-acesso">O botão <strong>Abrir revista</strong> leva ao site da revista. Fora da rede da UFCAT, o texto completo pode não abrir por lá. Nesse caso, entre pelo Portal.</p>
+        </div>
+      </section>
+    </div>
 
     <section class="resultados janela" aria-labelledby="titulo-res">
       <div class="barra"><svg class="ico" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><rect x="1" y="1" width="1" height="1"/><rect x="2" y="1" width="1" height="1"/><rect x="3" y="1" width="1" height="1"/><rect x="6" y="1" width="1" height="1"/><rect x="7" y="1" width="1" height="1"/><rect x="8" y="1" width="1" height="1"/><rect x="0" y="2" width="1" height="1"/><rect x="4" y="2" width="1" height="1"/><rect x="5" y="2" width="1" height="1"/><rect x="9" y="2" width="1" height="1"/><rect x="0" y="3" width="1" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="3" y="3" width="1" height="1"/><rect x="6" y="3" width="1" height="1"/><rect x="7" y="3" width="1" height="1"/><rect x="9" y="3" width="1" height="1"/><rect x="0" y="4" width="1" height="1"/><rect x="4" y="4" width="1" height="1"/><rect x="5" y="4" width="1" height="1"/><rect x="9" y="4" width="1" height="1"/><rect x="0" y="5" width="1" height="1"/><rect x="2" y="5" width="1" height="1"/><rect x="3" y="5" width="1" height="1"/><rect x="6" y="5" width="1" height="1"/><rect x="7" y="5" width="1" height="1"/><rect x="9" y="5" width="1" height="1"/><rect x="0" y="6" width="1" height="1"/><rect x="4" y="6" width="1" height="1"/><rect x="5" y="6" width="1" height="1"/><rect x="9" y="6" width="1" height="1"/><rect x="0" y="7" width="1" height="1"/><rect x="2" y="7" width="1" height="1"/><rect x="3" y="7" width="1" height="1"/><rect x="6" y="7" width="1" height="1"/><rect x="7" y="7" width="1" height="1"/><rect x="9" y="7" width="1" height="1"/><rect x="0" y="8" width="1" height="1"/><rect x="1" y="8" width="1" height="1"/><rect x="2" y="8" width="1" height="1"/><rect x="3" y="8" width="1" height="1"/><rect x="6" y="8" width="1" height="1"/><rect x="7" y="8" width="1" height="1"/><rect x="8" y="8" width="1" height="1"/><rect x="9" y="8" width="1" height="1"/></svg><h2 id="titulo-res">Revistas</h2></div>
