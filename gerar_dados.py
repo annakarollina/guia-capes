@@ -5,7 +5,7 @@ O que faz:
   1. Baixa as abas de recursos e da matriz curso x recurso da planilha publicada.
   2. Gera o arquivo dados.json (só recursos com Status = Ativo) e o titulos.json
      (títulos de periódicos ativos, usados na busca de revistas).
-  3. Atualiza a cópia de reserva dentro de index.html.
+  3. Atualiza a cópia de reserva dentro de recursos-capes-ufcat.html.
 
 Como rodar (na pasta onde estão este script e o HTML):
   python gerar_dados.py
@@ -81,7 +81,8 @@ def gerar_titulos(colecoes_ativas):
                 if tema and tema not in temas:
                     temas.append(tema)
         titulos.append([titulo, indice[colecao], (x.get("ISSN") or "").strip(), (x.get("EISSN") or "").strip(),
-                        (x.get("Cobertura") or "").strip(), url, "; ".join(temas)])
+                        (x.get("Cobertura") or "").strip(), url, "; ".join(temas),
+                        (x.get("Editora") or "").strip()])
     titulos.sort(key=lambda r: r[0].lower())
     ARQUIVO_TITULOS.write_text(json.dumps({"colecoes": colecoes, "titulos": titulos}, ensure_ascii=False,
                                           separators=(",", ":")), encoding="utf-8")

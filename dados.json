@@ -306,8 +306,8 @@
    "revistas": 9
   },
   {
-   "id": "periodicos-da-colecao-springer-journals-",
-   "nome": "Periódicos da coleção Springer Journals – Leitura",
+   "id": "colecao-springer-journals",
+   "nome": "Coleção Springer Journals",
    "tipo": "Coleção de periódicos",
    "resumo": "A Coleção Springer Journals é uma das maiores coleções de periódicos científicos disponibilizadas pelo Portal de Periódicos da CAPES, publicada pela Springer Nature, grupo editorial internacional formado pela fusão da Springer-Verlag (fundada em…",
    "desc": "A Coleção Springer Journals é uma das maiores coleções de periódicos científicos disponibilizadas pelo Portal de Periódicos da CAPES, publicada pela Springer Nature, grupo editorial internacional formado pela fusão da Springer-Verlag (fundada em 1842) com a Nature Publishing Group. Reúne mais de 1.760 títulos revisados por pares, abrangendo todas as grandes áreas do conhecimento, com destaque para Ciências Exatas e da Terra, Engenharias, Ciências Biológicas, Ciências da Saúde e Ciências Sociais Aplicadas.",
@@ -474,7 +474,7 @@
    "slug": "administracao-bacharelado-ead",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "wiley-database-de-periodicos",
     "jstor-arts-science-i",
@@ -489,7 +489,7 @@
    "slug": "administracao-bacharelado",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "wiley-database-de-periodicos",
     "jstor-arts-science-i",
@@ -504,7 +504,7 @@
    "slug": "administracao-publica-bacharelado",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "wiley-database-de-periodicos",
     "jstor-arts-science-i",
@@ -519,7 +519,7 @@
    "slug": "ciencia-da-computacao-bacharelado",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "periodicos-da-nature",
     "wiley-database-de-periodicos",
@@ -538,7 +538,7 @@
    "slug": "ciencias-biologicas-bacharelado",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "periodicos-da-nature",
     "wiley-database-de-periodicos",
@@ -565,7 +565,7 @@
    "slug": "ciencias-biologicas-licenciatura",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "periodicos-da-nature",
     "wiley-database-de-periodicos",
@@ -592,7 +592,7 @@
    "slug": "ciencias-sociais-bacharelado",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "wiley-database-de-periodicos",
     "jstor-arts-science-i",
@@ -609,7 +609,7 @@
    "slug": "ciencias-sociais-licenciatura",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "wiley-database-de-periodicos",
     "jstor-arts-science-i",
@@ -626,7 +626,7 @@
    "slug": "educacao-fisica-licenciatura",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "wiley-database-de-periodicos",
     "sage-premier",
@@ -639,7 +639,7 @@
    "slug": "educacao-do-campo-licenciatura",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "wiley-database-de-periodicos",
     "sage-premier",
@@ -654,7 +654,7 @@
    "slug": "enfermagem-bacharelado",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "periodicos-da-nature",
     "wiley-database-de-periodicos",
@@ -681,7 +681,7 @@
    "slug": "engenharia-civil-bacharelado",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "periodicos-da-nature",
     "wiley-database-de-periodicos",
@@ -702,7 +702,7 @@
    "slug": "engenharia-mecatronica-bacharelado",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "periodicos-da-nature",
     "wiley-database-de-periodicos",
@@ -724,7 +724,7 @@
    "slug": "engenharia-mecanica-bacharelado",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "periodicos-da-nature",
     "wiley-database-de-periodicos",
@@ -744,7 +744,7 @@
    "slug": "engenharia-de-minas-bacharelado",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "periodicos-da-nature",
     "wiley-database-de-periodicos",
@@ -762,7 +762,7 @@
    "slug": "engenharia-de-producao-bacharelado",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "periodicos-da-nature",
     "wiley-database-de-periodicos",
@@ -781,7 +781,7 @@
    "slug": "fisica-bacharelado",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "periodicos-da-nature",
     "wiley-database-de-periodicos",
@@ -799,7 +799,7 @@
    "slug": "fisica-licenciatura",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "periodicos-da-nature",
     "wiley-database-de-periodicos",
@@ -817,7 +817,7 @@
    "slug": "geografia-bacharelado",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "wiley-database-de-periodicos",
     "jstor-arts-science-i",
@@ -834,7 +834,7 @@
    "slug": "geografia-licenciatura",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "wiley-database-de-periodicos",
     "jstor-arts-science-i",
@@ -851,7 +851,7 @@
    "slug": "gestao-de-pessoas-e-marketing-especializacao",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "wiley-database-de-periodicos",
     "sage-premier"
@@ -862,7 +862,7 @@
    "slug": "gestao-do-agronegocio-tecnologo-ead",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "wiley-database-de-periodicos",
     "sage-premier",
@@ -876,7 +876,7 @@
    "slug": "historia-bacharelado",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "wiley-database-de-periodicos",
     "jstor-arts-science-i",
@@ -892,7 +892,7 @@
    "slug": "historia-licenciatura",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "wiley-database-de-periodicos",
     "jstor-arts-science-i",
@@ -908,7 +908,7 @@
    "slug": "inteligencia-artificial-bacharelado",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "periodicos-da-nature",
     "wiley-database-de-periodicos",
@@ -927,7 +927,7 @@
    "slug": "lavra-e-planejamento-de-mina-especializacao",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "wiley-database-de-periodicos",
     "sage-premier",
@@ -944,7 +944,7 @@
    "slug": "letras-portugues-licenciatura",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "wiley-database-de-periodicos",
     "sage-premier",
@@ -960,7 +960,7 @@
    "slug": "letras-portugues-e-ingles-licenciatura",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "wiley-database-de-periodicos",
     "sage-premier",
@@ -976,7 +976,7 @@
    "slug": "letras-portugues-e-libras-licenciatura",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "wiley-database-de-periodicos",
     "sage-premier",
@@ -992,7 +992,7 @@
    "slug": "matematica-bacharelado",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "periodicos-da-nature",
     "wiley-database-de-periodicos",
@@ -1008,7 +1008,7 @@
    "slug": "matematica-licenciatura-ead",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "wiley-database-de-periodicos",
     "sage-premier",
@@ -1021,7 +1021,7 @@
    "slug": "matematica-licenciatura",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "wiley-database-de-periodicos",
     "jstor-arts-science-i",
@@ -1035,7 +1035,7 @@
    "slug": "matematica-industrial-bacharelado",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "periodicos-da-nature",
     "wiley-database-de-periodicos",
@@ -1053,7 +1053,7 @@
    "slug": "medicina-bacharelado",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "periodicos-da-nature",
     "wiley-database-de-periodicos",
@@ -1082,7 +1082,7 @@
    "slug": "pedagogia-licenciatura",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "wiley-database-de-periodicos",
     "jstor-arts-science-i",
@@ -1101,7 +1101,7 @@
    "slug": "programa-de-pos-graduacao-em-ciencia-e-engenharia-de-materiais-ppgcem",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "periodicos-da-nature",
     "wiley-database-de-periodicos",
@@ -1130,7 +1130,7 @@
    "slug": "programa-de-pos-graduacao-em-ciencia-e-engenharia-de-materiais-ppgcemd",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "periodicos-da-nature",
     "wiley-database-de-periodicos",
@@ -1159,7 +1159,7 @@
    "slug": "programa-de-pos-graduacao-em-ciencia-e-engenharia-de-materiais-ppgcemm",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "periodicos-da-nature",
     "wiley-database-de-periodicos",
@@ -1182,7 +1182,7 @@
    "slug": "programa-de-pos-graduacao-em-educacao-ppgeduc",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "wiley-database-de-periodicos",
     "sage-premier",
@@ -1194,7 +1194,7 @@
    "slug": "programa-de-pos-graduacao-em-educacao-ppgeducd",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "wiley-database-de-periodicos",
     "jstor-arts-science-i",
@@ -1213,7 +1213,7 @@
    "slug": "programa-de-pos-graduacao-em-educacao-ppgeducm",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "wiley-database-de-periodicos",
     "jstor-arts-science-i",
@@ -1231,7 +1231,7 @@
    "slug": "programa-de-pos-graduacao-em-engenharia-civil-ppgec",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "periodicos-da-nature",
     "wiley-database-de-periodicos",
@@ -1249,7 +1249,7 @@
    "slug": "programa-de-pos-graduacao-em-engenharia-de-producao-ppgep",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "periodicos-da-nature",
     "wiley-database-de-periodicos",
@@ -1267,7 +1267,7 @@
    "slug": "programa-de-pos-graduacao-em-ensino-de-fisica-em-rede-ppgef",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "wiley-database-de-periodicos",
     "sage-premier",
@@ -1281,7 +1281,7 @@
    "slug": "programa-de-pos-graduacao-em-estudos-da-linguagem-ppgeld",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "wiley-database-de-periodicos",
     "sage-premier",
@@ -1297,7 +1297,7 @@
    "slug": "programa-de-pos-graduacao-em-estudos-da-linguagem-ppgelm",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "wiley-database-de-periodicos",
     "sage-premier",
@@ -1313,7 +1313,7 @@
    "slug": "programa-de-pos-graduacao-em-geografia-ppggeod",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "wiley-database-de-periodicos",
     "jstor-arts-science-i",
@@ -1330,7 +1330,7 @@
    "slug": "programa-de-pos-graduacao-em-geografia-ppggeom",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "wiley-database-de-periodicos",
     "jstor-arts-science-i",
@@ -1347,7 +1347,7 @@
    "slug": "programa-de-pos-graduacao-em-gestao-organizacional-ppggo",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "wiley-database-de-periodicos",
     "jstor-arts-science-i",
@@ -1363,7 +1363,7 @@
    "slug": "programa-de-pos-graduacao-em-historia-cultura-e-formacao-de-professores-ppgh-mp",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "wiley-database-de-periodicos",
     "jstor-arts-science-i",
@@ -1378,7 +1378,7 @@
    "slug": "programa-de-pos-graduacao-em-matematica-em-rede-profmat",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "wiley-database-de-periodicos",
     "jstor-arts-science-i",
@@ -1392,7 +1392,7 @@
    "slug": "programa-de-pos-graduacao-em-modelagem-e-otimizacao-ppgmo",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "periodicos-da-nature",
     "wiley-database-de-periodicos",
@@ -1413,7 +1413,7 @@
    "slug": "programa-de-pos-graduacao-em-quimica-ppgqd",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "periodicos-da-nature",
     "wiley-database-de-periodicos",
@@ -1436,7 +1436,7 @@
    "slug": "programa-de-pos-graduacao-em-quimica-ppgqm",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "periodicos-da-nature",
     "wiley-database-de-periodicos",
@@ -1458,7 +1458,7 @@
    "slug": "programa-de-pos-graduacao-em-saude-da-familia-profsaude",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "periodicos-da-nature",
     "wiley-database-de-periodicos",
@@ -1487,7 +1487,7 @@
    "slug": "psicologia-bacharelado-e-licenciatura",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "wiley-database-de-periodicos",
     "jstor-arts-science-i",
@@ -1505,7 +1505,7 @@
    "slug": "psicologia-bacharelado",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "wiley-database-de-periodicos",
     "jstor-arts-science-i",
@@ -1523,7 +1523,7 @@
    "slug": "quimica-bacharelado",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "periodicos-da-nature",
     "wiley-database-de-periodicos",
@@ -1546,7 +1546,7 @@
    "slug": "quimica-licenciatura",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "periodicos-da-nature",
     "wiley-database-de-periodicos",
@@ -1567,7 +1567,7 @@
    "slug": "quimica-industrial-bacharelado",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "periodicos-da-nature",
     "wiley-database-de-periodicos",
@@ -1592,7 +1592,7 @@
    "slug": "sistemas-de-informacao-bacharelado",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "wiley-database-de-periodicos",
     "sage-premier",
@@ -1609,7 +1609,7 @@
    "slug": "tratamento-de-minerios-especializacao",
    "recursos": [
     "scopus",
-    "periodicos-da-colecao-springer-journals-",
+    "colecao-springer-journals",
     "periodicos-da-freedom-collection",
     "wiley-database-de-periodicos",
     "sage-premier",
@@ -1625,7 +1625,7 @@
  ],
  "geral": [
   "scopus",
-  "periodicos-da-colecao-springer-journals-",
+  "colecao-springer-journals",
   "periodicos-da-freedom-collection",
   "wiley-database-de-periodicos",
   "sage-premier"
