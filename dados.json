@@ -23,7 +23,7 @@
   {
    "id": "american-society-for-testing-and-materia",
    "nome": "American Society for Testing and Materials - ASTM",
-   "tipo": "Base de dados",
+   "tipo": "Biblioteca digital",
    "resumo": "A base de dados American Society for Testing and Materials (ASTM) se destaca na publicação de Normas Técnicas bem como oferece mais de 1.500 e-books e publicações técnicas, mais de 47.000 capítulos e artigos e mais de 17.000 artigos de periódicos.",
    "desc": "A base de dados American Society for Testing and Materials (ASTM) se destaca na publicação de Normas Técnicas bem como oferece mais de 1.500 e-books e publicações técnicas, mais de 47.000 capítulos e artigos e mais de 17.000 artigos de periódicos.",
    "tutorial": "https://www.periodicos.capes.gov.br/images/documents/Guia%20de%20Usuário%20-%20ASTM.pdf",
@@ -132,8 +132,8 @@
    "revistas": 82
   },
   {
-   "id": "science-science-science-translational-me",
-   "nome": "Science (Science, Science Translational Medicine, Science Signaling, Science Immunology, Science Robotics)",
+   "id": "periodicos-da-science",
+   "nome": "Periódicos da Science",
    "tipo": "Coleção de periódicos",
    "resumo": "A Coleção de Periódicos Science reúne os principais títulos publicados pela American Association for the Advancement of Science (AAAS), editora da mais influente revista científica semanal do mundo.",
    "desc": "A Coleção de Periódicos Science reúne os principais títulos publicados pela American Association for the Advancement of Science (AAAS), editora da mais influente revista científica semanal do mundo. A coleção é composta por cinco periódicos revisados por pares de alto fator de impacto: Science, revista semanal global considerada a principal fonte de notícias, comentários e artigos de pesquisa de ponta em todas as áreas do conhecimento, incluindo astronomia, química, biologia, física, neurociência e saúde humana; Science Translational Medicine, que publica pesquisas na interseção entre ciência, engenharia e medicina, com o objetivo de promover a saúde humana, abordando áreas como doenças cardiovasculares, imunologia, vacinas, câncer, doenças infecciosas, neurociência, bioengenharia, descoberta de fármacos, medicina regenerativa e nanotecnologia médica; Science Signaling, voltado à pesquisa em bioquímica, biologia celular e molecular, imunologia, neurociência, farmacologia, fisiologia e biologia vegetal, com foco nos mecanismos moleculares de sinalização e regulação celular; Science Immunology, dedicado a avanços inovadores em imunologia, abrangendo defesa do hospedeiro, inflamação, imunologia do câncer, autoimunidade, alergia, imunodeficiência, imunogenômica, imunologia estrutural e imunometabolismo; e Science Robotics, que oferece um fórum para os mais recentes avanços tecnológicos e para as questões sociais, éticas e políticas relacionadas à robótica, cobrindo micro e nanorrobôs, robôs médicos e cirúrgicos, robôs espaciais, inteligência artificial, biomateriais e biorrobótica. O acesso é feito pelo Portal de Periódicos da CAPES nas opções \"Buscar base\" ou \"Buscar periódico\", com autenticação via CAFe para uso remoto.",
@@ -326,8 +326,8 @@
    "revistas": 1652
   },
   {
-   "id": "periodicos-da-nature-leitura",
-   "nome": "Periódicos da Nature – Leitura",
+   "id": "periodicos-da-nature",
+   "nome": "Periódicos da Nature",
    "tipo": "Coleção de periódicos",
    "resumo": "A Coleção de Periódicos Nature reúne os 35 títulos da família Nature, publicados pela Nature Portfolio (Springer Nature) e disponibilizados pelo Portal de Periódicos da CAPES. A coleção é liderada pela revista Nature, publicada desde 1869, e inclui…",
    "desc": "A Coleção de Periódicos Nature reúne os 35 títulos da família Nature, publicados pela Nature Portfolio (Springer Nature) e disponibilizados pelo Portal de Periódicos da CAPES. A coleção é liderada pela revista Nature, publicada desde 1869, e inclui títulos especializados em diversas áreas do conhecimento, com destaque para Ciências Biológicas, Ciências da Saúde, Ciências Exatas e da Terra, Física, Química e Engenharias.",
@@ -440,8 +440,8 @@
    "nota": ""
   },
   {
-   "id": "royal-society-publishing-leitura-e-publi",
-   "nome": "Royal Society Publishing - Leitura e Publicação",
+   "id": "colecao-royal-society-publishing",
+   "nome": "Coleção Royal Society Publishing",
    "tipo": "Coleção de periódicos",
    "resumo": "A Royal Society Publishing (Reino Unido) atende a 260 instituições participantes do PADICT no Portal de Periódicos, oferecendo 8 títulos para leitura e 10 para publicação.",
    "desc": "A Royal Society Publishing (Reino Unido) atende a 260 instituições participantes do PADICT no Portal de Periódicos, oferecendo 8 títulos para leitura e 10 para publicação. A coleção abrange pesquisas revisadas por pares em biologia, química, física, matemática, engenharia, tecnologia e medicina. Ela inclui a histórica revista Philosophical Transactions e o Journals Archive, que disponibiliza mais de 45.000 artigos digitalizados em cores (de 1665 a 1996) de cientistas como Isaac Newton e Charles Darwin, sendo um recurso essencial para a história da ciência.",
@@ -521,16 +521,16 @@
     "scopus",
     "periodicos-da-colecao-springer-journals-",
     "periodicos-da-freedom-collection",
-    "periodicos-da-nature-leitura",
+    "periodicos-da-nature",
     "wiley-database-de-periodicos",
     "sage-premier",
-    "science-science-science-translational-me",
+    "periodicos-da-science",
     "world-scientific-publishing-wsp",
     "now-publishers-collection",
     "acm-digital-library",
     "colecao-de-periodicos-acm",
     "ieee-electronic-library-iel",
-    "royal-society-publishing-leitura-e-publi"
+    "colecao-royal-society-publishing"
    ]
   },
   {
@@ -540,11 +540,11 @@
     "scopus",
     "periodicos-da-colecao-springer-journals-",
     "periodicos-da-freedom-collection",
-    "periodicos-da-nature-leitura",
+    "periodicos-da-nature",
     "wiley-database-de-periodicos",
     "jstor-arts-science-i",
     "sage-premier",
-    "science-science-science-translational-me",
+    "periodicos-da-science",
     "base-de-dados-scifinder-discovery-platfo",
     "de-gruyter-brill",
     "base-de-estruturas-cristalinas-bdec",
@@ -557,7 +557,7 @@
     "cabi-compendium",
     "embase",
     "colecao-acs",
-    "royal-society-publishing-leitura-e-publi"
+    "colecao-royal-society-publishing"
    ]
   },
   {
@@ -567,11 +567,11 @@
     "scopus",
     "periodicos-da-colecao-springer-journals-",
     "periodicos-da-freedom-collection",
-    "periodicos-da-nature-leitura",
+    "periodicos-da-nature",
     "wiley-database-de-periodicos",
     "jstor-arts-science-i",
     "sage-premier",
-    "science-science-science-translational-me",
+    "periodicos-da-science",
     "base-de-dados-scifinder-discovery-platfo",
     "de-gruyter-brill",
     "base-de-estruturas-cristalinas-bdec",
@@ -584,7 +584,7 @@
     "cabi-compendium",
     "embase",
     "colecao-acs",
-    "royal-society-publishing-leitura-e-publi"
+    "colecao-royal-society-publishing"
    ]
   },
   {
@@ -656,10 +656,10 @@
     "scopus",
     "periodicos-da-colecao-springer-journals-",
     "periodicos-da-freedom-collection",
-    "periodicos-da-nature-leitura",
+    "periodicos-da-nature",
     "wiley-database-de-periodicos",
     "sage-premier",
-    "science-science-science-translational-me",
+    "periodicos-da-science",
     "world-scientific-publishing-wsp",
     "base-de-dados-scifinder-discovery-platfo",
     "de-gruyter-brill",
@@ -683,10 +683,10 @@
     "scopus",
     "periodicos-da-colecao-springer-journals-",
     "periodicos-da-freedom-collection",
-    "periodicos-da-nature-leitura",
+    "periodicos-da-nature",
     "wiley-database-de-periodicos",
     "sage-premier",
-    "science-science-science-translational-me",
+    "periodicos-da-science",
     "world-scientific-publishing-wsp",
     "begell-house-inc-publishers",
     "american-institute-of-physics-publishing",
@@ -704,10 +704,10 @@
     "scopus",
     "periodicos-da-colecao-springer-journals-",
     "periodicos-da-freedom-collection",
-    "periodicos-da-nature-leitura",
+    "periodicos-da-nature",
     "wiley-database-de-periodicos",
     "sage-premier",
-    "science-science-science-translational-me",
+    "periodicos-da-science",
     "world-scientific-publishing-wsp",
     "begell-house-inc-publishers",
     "american-institute-of-physics-publishing",
@@ -726,10 +726,10 @@
     "scopus",
     "periodicos-da-colecao-springer-journals-",
     "periodicos-da-freedom-collection",
-    "periodicos-da-nature-leitura",
+    "periodicos-da-nature",
     "wiley-database-de-periodicos",
     "sage-premier",
-    "science-science-science-translational-me",
+    "periodicos-da-science",
     "world-scientific-publishing-wsp",
     "begell-house-inc-publishers",
     "american-institute-of-physics-publishing",
@@ -746,7 +746,7 @@
     "scopus",
     "periodicos-da-colecao-springer-journals-",
     "periodicos-da-freedom-collection",
-    "periodicos-da-nature-leitura",
+    "periodicos-da-nature",
     "wiley-database-de-periodicos",
     "sage-premier",
     "base-de-estruturas-cristalinas-bdec",
@@ -764,10 +764,10 @@
     "scopus",
     "periodicos-da-colecao-springer-journals-",
     "periodicos-da-freedom-collection",
-    "periodicos-da-nature-leitura",
+    "periodicos-da-nature",
     "wiley-database-de-periodicos",
     "sage-premier",
-    "science-science-science-translational-me",
+    "periodicos-da-science",
     "world-scientific-publishing-wsp",
     "begell-house-inc-publishers",
     "american-society-for-testing-and-materia",
@@ -783,15 +783,15 @@
     "scopus",
     "periodicos-da-colecao-springer-journals-",
     "periodicos-da-freedom-collection",
-    "periodicos-da-nature-leitura",
+    "periodicos-da-nature",
     "wiley-database-de-periodicos",
     "sage-premier",
-    "science-science-science-translational-me",
+    "periodicos-da-science",
     "world-scientific-publishing-wsp",
     "base-de-estruturas-cristalinas-bdec",
     "american-institute-of-physics-publishing",
     "base-de-dados-mathscinet",
-    "royal-society-publishing-leitura-e-publi"
+    "colecao-royal-society-publishing"
    ]
   },
   {
@@ -801,15 +801,15 @@
     "scopus",
     "periodicos-da-colecao-springer-journals-",
     "periodicos-da-freedom-collection",
-    "periodicos-da-nature-leitura",
+    "periodicos-da-nature",
     "wiley-database-de-periodicos",
     "sage-premier",
-    "science-science-science-translational-me",
+    "periodicos-da-science",
     "world-scientific-publishing-wsp",
     "base-de-estruturas-cristalinas-bdec",
     "american-institute-of-physics-publishing",
     "base-de-dados-mathscinet",
-    "royal-society-publishing-leitura-e-publi"
+    "colecao-royal-society-publishing"
    ]
   },
   {
@@ -910,16 +910,16 @@
     "scopus",
     "periodicos-da-colecao-springer-journals-",
     "periodicos-da-freedom-collection",
-    "periodicos-da-nature-leitura",
+    "periodicos-da-nature",
     "wiley-database-de-periodicos",
     "sage-premier",
-    "science-science-science-translational-me",
+    "periodicos-da-science",
     "world-scientific-publishing-wsp",
     "now-publishers-collection",
     "acm-digital-library",
     "colecao-de-periodicos-acm",
     "ieee-electronic-library-iel",
-    "royal-society-publishing-leitura-e-publi"
+    "colecao-royal-society-publishing"
    ]
   },
   {
@@ -994,13 +994,13 @@
     "scopus",
     "periodicos-da-colecao-springer-journals-",
     "periodicos-da-freedom-collection",
-    "periodicos-da-nature-leitura",
+    "periodicos-da-nature",
     "wiley-database-de-periodicos",
     "jstor-arts-science-i",
     "sage-premier",
     "de-gruyter-brill",
     "base-de-dados-mathscinet",
-    "royal-society-publishing-leitura-e-publi"
+    "colecao-royal-society-publishing"
    ]
   },
   {
@@ -1013,7 +1013,7 @@
     "wiley-database-de-periodicos",
     "sage-premier",
     "base-de-dados-mathscinet",
-    "royal-society-publishing-leitura-e-publi"
+    "colecao-royal-society-publishing"
    ]
   },
   {
@@ -1027,7 +1027,7 @@
     "jstor-arts-science-i",
     "sage-premier",
     "base-de-dados-mathscinet",
-    "royal-society-publishing-leitura-e-publi"
+    "colecao-royal-society-publishing"
    ]
   },
   {
@@ -1037,7 +1037,7 @@
     "scopus",
     "periodicos-da-colecao-springer-journals-",
     "periodicos-da-freedom-collection",
-    "periodicos-da-nature-leitura",
+    "periodicos-da-nature",
     "wiley-database-de-periodicos",
     "jstor-arts-science-i",
     "sage-premier",
@@ -1045,7 +1045,7 @@
     "acm-digital-library",
     "base-de-dados-mathscinet",
     "colecao-de-periodicos-acm",
-    "royal-society-publishing-leitura-e-publi"
+    "colecao-royal-society-publishing"
    ]
   },
   {
@@ -1055,10 +1055,10 @@
     "scopus",
     "periodicos-da-colecao-springer-journals-",
     "periodicos-da-freedom-collection",
-    "periodicos-da-nature-leitura",
+    "periodicos-da-nature",
     "wiley-database-de-periodicos",
     "sage-premier",
-    "science-science-science-translational-me",
+    "periodicos-da-science",
     "world-scientific-publishing-wsp",
     "base-de-dados-scifinder-discovery-platfo",
     "de-gruyter-brill",
@@ -1074,7 +1074,7 @@
     "clinics-review-articles",
     "operative-dentistry",
     "colecao-british-medical-journals",
-    "royal-society-publishing-leitura-e-publi"
+    "colecao-royal-society-publishing"
    ]
   },
   {
@@ -1103,10 +1103,10 @@
     "scopus",
     "periodicos-da-colecao-springer-journals-",
     "periodicos-da-freedom-collection",
-    "periodicos-da-nature-leitura",
+    "periodicos-da-nature",
     "wiley-database-de-periodicos",
     "sage-premier",
-    "science-science-science-translational-me",
+    "periodicos-da-science",
     "world-scientific-publishing-wsp",
     "base-de-dados-scifinder-discovery-platfo",
     "begell-house-inc-publishers",
@@ -1122,7 +1122,7 @@
     "georef",
     "gsw-journals-collection",
     "lyell-collection",
-    "royal-society-publishing-leitura-e-publi"
+    "colecao-royal-society-publishing"
    ]
   },
   {
@@ -1132,10 +1132,10 @@
     "scopus",
     "periodicos-da-colecao-springer-journals-",
     "periodicos-da-freedom-collection",
-    "periodicos-da-nature-leitura",
+    "periodicos-da-nature",
     "wiley-database-de-periodicos",
     "sage-premier",
-    "science-science-science-translational-me",
+    "periodicos-da-science",
     "world-scientific-publishing-wsp",
     "base-de-dados-scifinder-discovery-platfo",
     "begell-house-inc-publishers",
@@ -1151,7 +1151,7 @@
     "georef",
     "gsw-journals-collection",
     "lyell-collection",
-    "royal-society-publishing-leitura-e-publi"
+    "colecao-royal-society-publishing"
    ]
   },
   {
@@ -1161,10 +1161,10 @@
     "scopus",
     "periodicos-da-colecao-springer-journals-",
     "periodicos-da-freedom-collection",
-    "periodicos-da-nature-leitura",
+    "periodicos-da-nature",
     "wiley-database-de-periodicos",
     "sage-premier",
-    "science-science-science-translational-me",
+    "periodicos-da-science",
     "world-scientific-publishing-wsp",
     "base-de-dados-scifinder-discovery-platfo",
     "base-de-estruturas-cristalinas-bdec",
@@ -1174,7 +1174,7 @@
     "base-de-dados-science-of-synthesis",
     "georef",
     "gsw-journals-collection",
-    "royal-society-publishing-leitura-e-publi"
+    "colecao-royal-society-publishing"
    ]
   },
   {
@@ -1233,7 +1233,7 @@
     "scopus",
     "periodicos-da-colecao-springer-journals-",
     "periodicos-da-freedom-collection",
-    "periodicos-da-nature-leitura",
+    "periodicos-da-nature",
     "wiley-database-de-periodicos",
     "sage-premier",
     "world-scientific-publishing-wsp",
@@ -1251,7 +1251,7 @@
     "scopus",
     "periodicos-da-colecao-springer-journals-",
     "periodicos-da-freedom-collection",
-    "periodicos-da-nature-leitura",
+    "periodicos-da-nature",
     "wiley-database-de-periodicos",
     "sage-premier",
     "world-scientific-publishing-wsp",
@@ -1273,7 +1273,7 @@
     "sage-premier",
     "american-institute-of-physics-publishing",
     "base-de-dados-mathscinet",
-    "royal-society-publishing-leitura-e-publi"
+    "colecao-royal-society-publishing"
    ]
   },
   {
@@ -1394,7 +1394,7 @@
     "scopus",
     "periodicos-da-colecao-springer-journals-",
     "periodicos-da-freedom-collection",
-    "periodicos-da-nature-leitura",
+    "periodicos-da-nature",
     "wiley-database-de-periodicos",
     "sage-premier",
     "world-scientific-publishing-wsp",
@@ -1415,10 +1415,10 @@
     "scopus",
     "periodicos-da-colecao-springer-journals-",
     "periodicos-da-freedom-collection",
-    "periodicos-da-nature-leitura",
+    "periodicos-da-nature",
     "wiley-database-de-periodicos",
     "sage-premier",
-    "science-science-science-translational-me",
+    "periodicos-da-science",
     "base-de-dados-scifinder-discovery-platfo",
     "de-gruyter-brill",
     "base-de-estruturas-cristalinas-bdec",
@@ -1428,7 +1428,7 @@
     "base-de-dados-science-of-synthesis",
     "colecao-acs",
     "colecao-emerald-journals",
-    "royal-society-publishing-leitura-e-publi"
+    "colecao-royal-society-publishing"
    ]
   },
   {
@@ -1438,10 +1438,10 @@
     "scopus",
     "periodicos-da-colecao-springer-journals-",
     "periodicos-da-freedom-collection",
-    "periodicos-da-nature-leitura",
+    "periodicos-da-nature",
     "wiley-database-de-periodicos",
     "sage-premier",
-    "science-science-science-translational-me",
+    "periodicos-da-science",
     "base-de-dados-scifinder-discovery-platfo",
     "de-gruyter-brill",
     "base-de-estruturas-cristalinas-bdec",
@@ -1450,7 +1450,7 @@
     "colecao-thieme-journals-a-la-carte",
     "base-de-dados-science-of-synthesis",
     "colecao-acs",
-    "royal-society-publishing-leitura-e-publi"
+    "colecao-royal-society-publishing"
    ]
   },
   {
@@ -1460,10 +1460,10 @@
     "scopus",
     "periodicos-da-colecao-springer-journals-",
     "periodicos-da-freedom-collection",
-    "periodicos-da-nature-leitura",
+    "periodicos-da-nature",
     "wiley-database-de-periodicos",
     "sage-premier",
-    "science-science-science-translational-me",
+    "periodicos-da-science",
     "world-scientific-publishing-wsp",
     "base-de-dados-scifinder-discovery-platfo",
     "de-gruyter-brill",
@@ -1479,7 +1479,7 @@
     "clinics-review-articles",
     "operative-dentistry",
     "colecao-british-medical-journals",
-    "royal-society-publishing-leitura-e-publi"
+    "colecao-royal-society-publishing"
    ]
   },
   {
@@ -1525,10 +1525,10 @@
     "scopus",
     "periodicos-da-colecao-springer-journals-",
     "periodicos-da-freedom-collection",
-    "periodicos-da-nature-leitura",
+    "periodicos-da-nature",
     "wiley-database-de-periodicos",
     "sage-premier",
-    "science-science-science-translational-me",
+    "periodicos-da-science",
     "base-de-dados-scifinder-discovery-platfo",
     "de-gruyter-brill",
     "base-de-estruturas-cristalinas-bdec",
@@ -1538,7 +1538,7 @@
     "colecao-thieme-journals-a-la-carte",
     "base-de-dados-science-of-synthesis",
     "colecao-acs",
-    "royal-society-publishing-leitura-e-publi"
+    "colecao-royal-society-publishing"
    ]
   },
   {
@@ -1548,10 +1548,10 @@
     "scopus",
     "periodicos-da-colecao-springer-journals-",
     "periodicos-da-freedom-collection",
-    "periodicos-da-nature-leitura",
+    "periodicos-da-nature",
     "wiley-database-de-periodicos",
     "sage-premier",
-    "science-science-science-translational-me",
+    "periodicos-da-science",
     "base-de-dados-scifinder-discovery-platfo",
     "de-gruyter-brill",
     "base-de-estruturas-cristalinas-bdec",
@@ -1559,7 +1559,7 @@
     "colecao-thieme-journals-a-la-carte",
     "base-de-dados-science-of-synthesis",
     "colecao-acs",
-    "royal-society-publishing-leitura-e-publi"
+    "colecao-royal-society-publishing"
    ]
   },
   {
@@ -1569,10 +1569,10 @@
     "scopus",
     "periodicos-da-colecao-springer-journals-",
     "periodicos-da-freedom-collection",
-    "periodicos-da-nature-leitura",
+    "periodicos-da-nature",
     "wiley-database-de-periodicos",
     "sage-premier",
-    "science-science-science-translational-me",
+    "periodicos-da-science",
     "base-de-dados-scifinder-discovery-platfo",
     "begell-house-inc-publishers",
     "de-gruyter-brill",
@@ -1584,7 +1584,7 @@
     "cortellis-drug-discovery-intelligence-cd",
     "base-de-dados-science-of-synthesis",
     "colecao-acs",
-    "royal-society-publishing-leitura-e-publi"
+    "colecao-royal-society-publishing"
    ]
   },
   {
@@ -1601,7 +1601,7 @@
     "acm-digital-library",
     "colecao-de-periodicos-acm",
     "ieee-electronic-library-iel",
-    "royal-society-publishing-leitura-e-publi"
+    "colecao-royal-society-publishing"
    ]
   },
   {
@@ -1619,7 +1619,7 @@
     "georef",
     "gsw-journals-collection",
     "lyell-collection",
-    "royal-society-publishing-leitura-e-publi"
+    "colecao-royal-society-publishing"
    ]
   }
  ],
