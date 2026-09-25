@@ -29,7 +29,7 @@ from pathlib import Path
 
 # ---------- CONFIGURAÇÃO ----------
 PUBLICADA = ("https://docs.google.com/spreadsheets/d/e/2PACX-1vQQCO8sZ4oCALSf7vxBioerB0RLS4gcr-"
-             "eI984cjQlx6LK7nZquk3j9GU6wEpwidppw4qox_V5U0qDf/")
+             "eI984cjQlx6LK7nZquk3j9GU6wEpwidppw4qox_V5U0qDf")
 PLANILHA = PUBLICADA + "pub?output=csv&gid="
 
 # Nome de cada aba na planilha e o gid conhecido (usado só se não der para achar pelo nome).
