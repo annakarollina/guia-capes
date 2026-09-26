@@ -638,12 +638,12 @@ const BLOCOS = {
   essenciais:     {ancora:"n-comece", titulo:"Comece por aqui", texto:"As fontes mais ligadas ao seu curso.",
                    quando:"Bom ponto de partida para trabalhos, TCC e revisão de literatura.", cor:"#FC821A", corx:"#000000", icone:"estrela",
                    legenda:n => "para começar"},
-  gerais:         {ancora:"n-gerais", titulo:"Bases gerais", texto:"Grandes bases que atendem todos os cursos da UFCAT.",
+  gerais:         {ancora:"n-gerais", titulo:"Fontes de informação gerais", texto:"Scopus e as grandes coleções de revistas da Springer, Elsevier, Wiley e SAGE, que atendem todos os cursos da UFCAT.",
                    quando:"Use para ampliar a busca ou quando o tema passa por outras áreas.", cor:"#79574F", corx:"#FFFFFF", icone:"globo",
-                   legenda:n => n === 1 ? "base geral" : "bases gerais"},
-  complementares: {ancora:"n-aprofundar", titulo:"Para aprofundar", texto:"Fontes que também cobrem temas do seu curso.",
+                   legenda:n => n === 1 ? "fonte geral" : "fontes gerais"},
+  complementares: {ancora:"n-aprofundar", titulo:"Para se aprofundar", texto:"Fontes que também cobrem temas do seu curso.",
                    quando:"Use quando já tiver um assunto definido e quiser ir além.", cor:"#297A7D", corx:"#FFFFFF", icone:"mais",
-                   legenda:n => "para aprofundar"}
+                   legenda:n => "para se aprofundar"}
 };
 const porTipoNome = (a, b) => (ORDEM_TIPOS.indexOf(a.tipo) - ORDEM_TIPOS.indexOf(b.tipo)) || a.nome.localeCompare(b.nome, "pt");
 const pegar = ids => { const porId = Object.fromEntries(dados.recursos.map(r => [r.id, r])); return (ids || []).map(id => porId[id]).filter(Boolean); };
@@ -719,13 +719,13 @@ function renderizar({titulo, blocos, combo, copiar, antes = "", rotuloEstante}){
 }
 
 function mostrarCurso(curso, combo){
-  if (!curso) return renderizar({titulo:"Todos os recursos", blocos: blocosPorTipo([...dados.recursos]), combo, rotuloEstante:"Todos os recursos, por tipo"});
+  if (!curso) { const gs = new Set(dados.geral || []); return renderizar({titulo:"Todos os recursos", blocos: [blocoNivel("gerais", pegar(dados.geral)), ...blocosPorTipo(dados.recursos.filter(r => !gs.has(r.id)))], combo, rotuloEstante:"Todos os recursos"}); }
   if (!curso.essenciais && !curso.complementares) {  /* dados no formato antigo: agrupa por tipo */
     return renderizar({titulo:curso.nome, blocos: blocosPorTipo(pegar([...new Set([...(curso.recursos || []), ...(dados.geral || [])])])),
       combo, copiar:"Copiar link do meu curso", rotuloEstante:"Recursos do curso, por tipo"});
   }
   renderizar({titulo:curso.nome, combo, copiar:"Copiar link do meu curso", rotuloEstante:"Recursos do curso, por prioridade",
-    blocos:[blocoNivel("essenciais", pegar(curso.essenciais)), blocoNivel("gerais", pegar(dados.geral)), blocoNivel("complementares", pegar(curso.complementares))]});
+    blocos:[blocoNivel("gerais", pegar(dados.geral)), blocoNivel("essenciais", pegar(curso.essenciais)), blocoNivel("complementares", pegar(curso.complementares))]});
 }
 
 function mostrarArea(area, combo){
@@ -734,7 +734,7 @@ function mostrarArea(area, combo){
   const cursos = dados.cursos.filter(c => c.area === area);
   const antes = cursos.length ? `<p class="cursos-area"><b>Cursos desta área:</b> ${cursos.map(c => `<a href="#curso=${c.slug}" data-curso="${c.slug}">${esc(c.nome)}</a>`).join(" · ")}</p>` : "";
   renderizar({titulo:area, combo, copiar:"Copiar link desta área", antes, rotuloEstante:"Recursos da área, por tipo",
-    blocos:[...blocosPorTipo(recs), blocoNivel("gerais", pegar(dados.geral))]});
+    blocos:[blocoNivel("gerais", pegar(dados.geral)), ...blocosPorTipo(recs)]});
 }
 function aviso(t){ const el = $("#toast"); el.textContent = t; el.classList.add("on"); setTimeout(() => el.classList.remove("on"), 2200); }
 
