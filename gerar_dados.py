@@ -1,7 +1,7 @@
 """
 Gera os dados da página "Recursos CAPES por curso" a partir da planilha publicada.
 
-O que faz:
+O que esse arquivo faz:
   1. Acha as abas da planilha publicada pelo nome (não depende do gid).
   2. Lê a aba principal (recursos), a aba "Cursos", a matriz "Curso e Recurso"
      (Essencial / Complementar / vazio) e a aba "Recurso ÁREA_CNPQ".
